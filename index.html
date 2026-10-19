@@ -21,6 +21,19 @@
 .header.menu-open{background:#211c16f5}.header.menu-open .nav{display:flex}.header .nav a{min-height:44px}.header .future-login{min-width:166px;height:53px;gap:5px;margin-top:8px}.header .future-login small,.header .future-login strong{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.menu-toggle span{transition:none}}
+
+/* Reference geometry: 16:9 source with 88px bars in each edge of a 720px frame. */
+html,body,.hero{background:#000}
+.hero{--source-height:max(100vh,56.25vw);--cinema-band:max(0px,calc(50vh - var(--source-height) * .3777777778))}
+.background,.film{clip-path:inset(var(--cinema-band) 0)}
+.film{background:rgba(0,0,0,.5)}
+.header{background:linear-gradient(180deg,#000,transparent)}
+.header-inner{width:calc(100% - 40px);max-width:none;min-height:86.890625px;padding:0;gap:26px}
+.brand,.brand img{width:200px;flex-basis:200px}
+.hero-copy{padding:0 20px}
+.hero-copy h1{font-size:clamp(19.2px,3.6vw,33.6px);font-weight:400;line-height:1.5;letter-spacing:9.6px;text-shadow:none}
+@media(max-width:960px){.header-inner{min-height:86.890625px;padding:0;gap:16px}.header .nav{max-height:calc(100dvh - 86.890625px)}}
+@media(max-width:600px){.hero-copy h1{letter-spacing:clamp(0px,calc((100vw - 40px)/12 - 19.2px),9.6px)}}
 </style></head><body><main class="hero" aria-label="K2 Family Office メディア">
 <video id="background-video" class="background" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg?v=20261018" aria-hidden="true"><source src="assets/k2-background-mobile-30s.mp4?v=20261018" type="video/mp4" media="(max-width:600px)"><source src="assets/k2-background-30s.mp4?v=20261018" type="video/mp4"></video><div class="film"></div>
 <header class="header"><div class="header-inner"><a class="brand" href="/" aria-label="K2 Family Office Media"><img src="assets/k2-lp-logo.svg" alt="K2 Family Office" width="1330" height="235"></a><button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button><nav id="main-nav" class="nav" aria-label="メインナビゲーション"><a href="/" data-preview="Media">Media</a><a href="/guide/01/" data-preview="Guide">Guide</a><a href="/family-office/" class="service" data-preview="サービスLP">ファミリーオフィスを持つ</a><div class="future-login" aria-label="MY FAMILY OFFICE LOGIN 準備中"><small>MY FAMILY OFFICE</small><strong>LOGIN</strong></div></nav></div></header>
