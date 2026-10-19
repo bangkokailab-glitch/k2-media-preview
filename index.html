@@ -41,13 +41,20 @@ html,body,.hero{background:#000}
 .header-inner{width:80%;max-width:1200px;height:100%;min-height:0;padding:0}
 @media(max-width:960px){.hero{--header-band:max(86.890625px,var(--cinema-band))}.header .nav{max-height:calc(100dvh - var(--header-band))}}
 @media(max-width:900px){.header-inner{width:calc(100% - 40px)}}
+/* Mobile composition: a square photo window keeps the people and their surroundings together. */
+@media(max-width:600px){
+.hero{height:calc(100vw + 176px);min-height:0;--cinema-band:88px;--header-band:88px}
+.background,.film{inset:88px 0;width:100%;height:calc(100% - 176px);clip-path:none}
+.background{object-fit:contain}
+.hero-copy{inset:88px 0}
+}
 </style></head><body><main class="hero" aria-label="K2 Family Office メディア">
-<video id="background-video" class="background" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg?v=20261018" aria-hidden="true"><source src="assets/k2-background-mobile-30s.mp4?v=20261018" type="video/mp4" media="(max-width:600px)"><source src="assets/k2-background-30s.mp4?v=20261018" type="video/mp4"></video><div class="film"></div>
+<video id="background-video" class="background" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg?v=20261018" aria-hidden="true"><source src="assets/k2-background-mobile-30s.mp4?v=20261019-mobile" type="video/mp4" media="(max-width:600px)"><source src="assets/k2-background-30s.mp4?v=20261018" type="video/mp4"></video><div class="film"></div>
 <header class="header"><div class="header-inner"><a class="brand" href="/" aria-label="K2 Family Office Media"><img src="assets/k2-lp-logo.svg" alt="K2 Family Office" width="1330" height="235"></a><button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button><nav id="main-nav" class="nav" aria-label="メインナビゲーション"><a href="/" data-preview="Media">Media</a><a href="/guide/01/" data-preview="Guide">Guide</a><a href="/family-office/" class="service" data-preview="サービスLP">ファミリーオフィスを持つ</a><div class="future-login" aria-label="MY FAMILY OFFICE LOGIN 準備中"><small>MY FAMILY OFFICE</small><strong>LOGIN</strong></div></nav></div></header>
 <div class="hero-copy"><h1>経営も、資産も、家族も。<br>その先の人生を設計する。</h1></div>
 <div class="preview-note" role="status" aria-live="polite"></div>
 </main><script>
-const q=new URLSearchParams(location.search);const v=document.getElementById('background-video');if(matchMedia('(max-width:600px)').matches)v.poster='assets/poster-mobile.jpg?v=20261018';if(q.has('overlay')){document.documentElement.classList.add('overlay-only');v.removeAttribute('autoplay');v.pause()}
+const q=new URLSearchParams(location.search);const v=document.getElementById('background-video');if(matchMedia('(max-width:600px)').matches)v.poster='assets/poster-mobile.jpg?v=20261019-mobile';if(q.has('overlay')){document.documentElement.classList.add('overlay-only');v.removeAttribute('autoplay');v.pause()}
 if(matchMedia('(prefers-reduced-motion: reduce)').matches&&!q.has('capture')){v.removeAttribute('autoplay');v.pause()}if(q.has('capture'))v.addEventListener('loadeddata',()=>{v.pause();v.currentTime=Number(q.get('time')||1)},{once:true});
 let toastTimer;function notice(s){const n=document.querySelector('.preview-note');n.textContent=s;clearTimeout(toastTimer);toastTimer=setTimeout(()=>n.textContent='',3200)}document.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();notice((a.dataset.preview||'Media')+'への導線です。今回はファーストビューの確認用です。')}));
 
@@ -58,4 +65,13 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&header.classList.co
 document.addEventListener('click',e=>{if(!header.contains(e.target))closeMenu()});
 document.querySelectorAll('.header a').forEach(a=>a.addEventListener('click',()=>closeMenu(true)));
 matchMedia('(max-width:960px)').addEventListener('change',()=>closeMenu());
+// Refresh the matching video source when a preview changes between desktop and phone widths.
+matchMedia('(max-width:600px)').addEventListener('change',e=>{
+ const time=v.currentTime||0;
+ const play=!v.paused&&!q.has('capture')&&!q.has('overlay')&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
+ v.poster=e.matches?'assets/poster-mobile.jpg?v=20261019-mobile':'assets/poster.jpg?v=20261018';
+ v.addEventListener('loadedmetadata',()=>{v.currentTime=Math.min(time,Math.max(0,v.duration-.05));if(play)v.play().catch(()=>{});else v.pause()},{once:true});
+ v.load();
+});
+
 </script></body></html>

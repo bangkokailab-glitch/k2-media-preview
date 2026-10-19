@@ -10,3 +10,20 @@
 
 /* Selected A: plain black footer without a photograph. */
 .theme-a .site-footer{background:#000}
+
+/* Mobile footer: centre the brand, navigation and site information. */
+@media(max-width:900px){
+  .site-footer{text-align:center}
+  .footer-top{display:flex;flex-direction:column;align-items:center;gap:0}
+  .footer-top .brand{margin-inline:auto}
+  .footer-top .brand-logo{display:block;margin-inline:auto}
+  .footer-top .brand-media{margin-left:0;text-align:center}
+  .footer-major{display:grid;grid-template-columns:auto auto;justify-content:center;justify-items:center;gap:24px 30px}
+  .footer-major .back-top{grid-column:1 / -1;margin-left:0;margin-inline:auto}
+  .footer-bottom{align-items:center}
+  .footer-bottom nav{width:100%;grid-template-columns:1fr;justify-items:center;gap:17px;text-align:center}
+  .footer-bottom>small{text-align:center}
+}
+
+/* Match the mobile composition inside the shared first-view frame. */
+@media(max-width:600px){.hero-frame{height:calc(100vw + 176px)}}
