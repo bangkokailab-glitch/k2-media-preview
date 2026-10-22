@@ -15,3 +15,7 @@ html{scroll-behavior:smooth}body{background:#e5d8c4;color:#392a1f}body,button,in
 .theme-b .site-footer{background:#000}
 .option-b1 .guide-veil{background:linear-gradient(180deg,#110c0855,#110c088c 45%,#110c0899)}
 @media(max-width:600px){.option-b1 .guide-backdrop{object-position:55% center}.option-b1 .guide-veil{background:#110c0866}}
+
+/* Article introduction and mobile-menu priority. */
+.article-excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:12px 0 0;font-size:13px;line-height:1.9;color:#6b5847;letter-spacing:.015em}
+@media(max-width:1100px){.header .nav .future-login{order:-1;margin-top:0;margin-bottom:8px}}
