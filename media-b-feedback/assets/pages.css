@@ -44,3 +44,13 @@ html{scroll-behavior:smooth}body{background:#e5d8c4;color:#392a1f}body,button,in
 .article-excerpt,.featured-excerpt{text-decoration:none;cursor:pointer}
 .article-excerpt:hover,.featured-excerpt:hover{text-decoration:underline;text-underline-offset:3px}
 .article-excerpt:focus-visible,.featured-excerpt:focus-visible{outline:2px solid #6b5847;outline-offset:4px}
+
+/* Fixed scenery; each section clips its own backdrop while content scrolls. */
+@media(prefers-reduced-motion:no-preference){
+ .hero,.guide-banner{clip-path:inset(0)}
+ .hero>.background,.hero>.film{position:fixed;inset:0;width:100%;height:100vh}
+ .guide-banner>.guide-backdrop{position:fixed;inset:0;width:100%;height:100vh;height:100svh;object-fit:cover}
+ @media(max-width:600px){
+  .hero>.background,.hero>.film{inset:88px 0 auto;height:100vw}
+ }
+}
