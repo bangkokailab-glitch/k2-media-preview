@@ -1,11 +1,7 @@
-# K2 Media visual preview
+# K2 Family Office — client design preview
 
-2026-10-18更新。支給写真10枚を指定順・各3秒、合計30秒で表示する無音のファーストビュー確認用ページです。PCとスマートフォンで映像の切り取りを分けています。
+Client review URL: https://bangkokailab-glitch.github.io/k2-media-preview/client-preview/
 
-コピー：経営も、資産も、家族も。その先の人生を設計する。
+This snapshot is for visual review only. All navigation links are disabled. Background video, scrolling and mobile menu remain available.
 
-GitHub Pages: main branch / root folder.
-欧文はArial、日本語は端末のヒラギノ角ゴシック等を使用します。第三者の有料フォントファイルは含みません。
-ナビゲーションは表示確認用で、各ページへの遷移・LOGIN機能は未実装です。
-
-コピーは画面の縦横中央に配置。各写真の切り取り位置・拡大率を調整し、顔との重なりを抑えています。
+Earlier test routes are no longer published.
