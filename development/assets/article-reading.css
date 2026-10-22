@@ -1,0 +1,51 @@
+/* Article reading and author presentation, 2026-10-23.
+   note text measure: 620px; X default body size: 15px. */
+body[data-page="article"] .article-layout{width:calc(100% - 64px);max-width:964px;grid-template-columns:minmax(0,620px) 270px;column-gap:74px}
+body[data-page="article"] .article-prose{max-width:620px;font-size:15px;line-height:2.1}
+body[data-page="article"] .article-prose .entry-intro{font-size:15px;line-height:2.1}
+body[data-page="article"] .article-prose section p,body[data-page="article"] .article-prose li{font-size:15px}
+body[data-page="article"] .discovery-sidebar{border-left:0;padding-left:0}
+body[data-page="article"] .discovery-sidebar nav a{min-height:48px}
+.author-portrait{margin:0;background:#fff;overflow:hidden;border-radius:50%}
+.author-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;object-fit:contain}
+body[data-page="article"] .author-name{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:400;letter-spacing:.06em}
+body[data-page="article"] .author-role{color:#695642;font-family:Georgia,serif;font-size:15px;line-height:1.7}
+body[data-page="article"] .author-profile-link{display:inline-flex;justify-content:center;align-items:center;min-height:48px;border:1px solid #a58c6d;padding:10px 18px;font-size:15px;line-height:1.7;text-decoration:none;text-align:center;background:transparent;color:#392a1f}
+body[data-page="article"] .author-profile-link:hover{background:#e0ceb4}
+body[data-page="article"] .author-profile-link:focus-visible{outline:2px solid #6b5847;outline-offset:4px}
+body[data-page="article"] .sidebar-author{background:#efe5d5;padding:22px}
+body[data-page="article"] .sidebar-author .eyebrow{margin-bottom:18px}
+body[data-page="article"] .sidebar-author .author-portrait{width:100%;aspect-ratio:1}
+body[data-page="article"] .sidebar-author h2{font-size:25px;line-height:1.5;margin:22px 0 5px}
+body[data-page="article"] .sidebar-author .author-role{margin:0 0 17px}
+body[data-page="article"] .sidebar-author .author-bio{font-family:inherit;font-size:15px;line-height:1.9;color:#594634;margin:0 0 20px}
+body[data-page="article"] .sidebar-author .author-profile-link{width:100%}
+body[data-page="article"] .author-block{display:grid;grid-template-columns:126px minmax(0,1fr);gap:16px 28px;background:#efe5d5;border:0;border-top:1px solid #ac9575;padding:32px;margin:48px 0 56px}
+body[data-page="article"] .author-block .author-portrait{grid-column:1;grid-row:1 / span 3;aspect-ratio:1}
+body[data-page="article"] .author-block .author-identity{grid-column:2;grid-row:1}
+body[data-page="article"] .author-block .eyebrow{margin:0 0 10px;font-size:10px}
+body[data-page="article"] .author-block .author-name{margin:0 0 6px;font-size:27px;line-height:1.5}
+body[data-page="article"] .author-block .author-role{margin:0}
+body[data-page="article"] .author-block .author-bio{grid-column:2;grid-row:2;margin:0;color:#594634;font-size:15px;line-height:1.9}
+body[data-page="article"] .author-block .author-profile-link{grid-column:2;grid-row:3;justify-self:start}
+body[data-page="article"] .portrait-preview-note{font-size:15px;line-height:1.6;color:#796956;margin:14px 0 0}
+body[data-page="article"] .author-block .portrait-preview-note{grid-column:1 / -1;margin:0}
+@media(max-width:1050px){
+ body[data-page="article"] .article-layout{display:flex;flex-direction:column;width:calc(100% - 32px);max-width:620px;padding-top:24px;gap:0}
+ body[data-page="article"] .entry,body[data-page="article"] .article-after{width:100%}
+ body[data-page="article"] .entry{order:0}
+ body[data-page="article"] .article-after{order:1}
+ body[data-page="article"] .discovery-sidebar{order:2;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:28px;border-top:1px solid var(--line);padding:32px 0 0;margin-top:40px}
+ body[data-page="article"] .discovery-sidebar section+section{margin-top:0}
+ body[data-page="article"] .sidebar-author{display:none}
+}
+@media(max-width:600px){
+ body[data-page="article"] .author-block{grid-template-columns:88px minmax(0,1fr);padding:24px 20px;gap:20px;margin:36px 0 42px}
+ body[data-page="article"] .author-block .author-portrait{grid-row:1;aspect-ratio:1}
+ body[data-page="article"] .author-block .author-identity{align-self:center}
+ body[data-page="article"] .author-block .author-name{font-size:24px}
+ body[data-page="article"] .author-block .author-bio{grid-column:1 / -1;grid-row:2}
+ body[data-page="article"] .author-block .author-profile-link{grid-column:1 / -1;grid-row:3;justify-self:stretch}
+ body[data-page="article"] .discovery-sidebar{display:block}
+ body[data-page="article"] .discovery-sidebar section+section{margin-top:32px}
+}
