@@ -1,4 +1,4 @@
-import {initBackgroundVideo} from './background-video.js?v=20261023-reading';
+import {initBackgroundVideo} from './background-video.js?v=20261023-performance';
 const siteAsset=name=>new URL('./media/'+name,import.meta.url).href;
 const menu=document.querySelector('.menu-toggle'), masthead=document.querySelector('.header');
 function closeMenu(){masthead?.classList.remove('menu-open');menu?.setAttribute('aria-expanded','false');menu?.setAttribute('aria-label','メニューを開く')}

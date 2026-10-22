@@ -36,9 +36,12 @@
  .search-form input,.form-field>input,.form-field textarea,.form-preview-note select{font-size:16px!important}
 }
 /* A separate poster remains visible when the browser disallows autoplay. */
-.hero>#background-video{opacity:0;pointer-events:none}
-.hero>#background-video.is-playing{opacity:1}
-.hero>.hero-poster{pointer-events:none}
+/* Keep the video visible to WebKit; the separate poster covers loading or blocked playback. */
+.hero>#background-video{opacity:1;pointer-events:none;z-index:-4}
+.hero>.hero-poster{pointer-events:none;z-index:-3;opacity:1}
+.hero>.hero-poster img{display:block;width:100%;height:100%;object-fit:cover}
+.hero.has-video-frame>.hero-poster{opacity:0}
+@media(max-width:600px){.hero>.hero-poster img{object-fit:contain}}
 #background-video::-webkit-media-controls,
 #background-video::-webkit-media-controls-enclosure,
 #background-video::-webkit-media-controls-panel,
