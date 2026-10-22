@@ -54,3 +54,15 @@ html{scroll-behavior:smooth}body{background:#e5d8c4;color:#392a1f}body,button,in
   .hero>.background,.hero>.film{inset:88px 0 auto;height:100vw}
  }
 }
+
+/* Keep the masthead visible independently of the clipped hero scenery. */
+body{--fixed-header-height:100px}
+body[data-page="home"]{--fixed-header-height:max(78px,calc(50vh - max(100vh,56.25vw) * .3777777778))}
+.header,.header.inner-header{position:fixed;inset:0 0 auto;width:100%;height:var(--fixed-header-height);z-index:40;background:#000}
+.header .header-inner{height:100%;min-height:0}
+.inner-header+main{padding-top:var(--fixed-header-height)}
+#article-list,.article-prose section{scroll-margin-top:calc(var(--fixed-header-height) + 24px)}
+@media(max-width:1100px){
+ body,body[data-page="home"]{--fixed-header-height:88px}
+ .header .nav{max-height:calc(100dvh - var(--fixed-header-height));overscroll-behavior:contain}
+}
