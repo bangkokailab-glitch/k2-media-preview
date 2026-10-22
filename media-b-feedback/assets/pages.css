@@ -22,7 +22,7 @@ html{scroll-behavior:smooth}body{background:#e5d8c4;color:#392a1f}body,button,in
 
 /* Editorial lead article, followed by the regular three-column list. */
 .featured-section{margin-bottom:64px}
-.featured-article{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:center}
+.featured-card-link{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:center}
 .featured-image{display:block;overflow:hidden;aspect-ratio:1.65}
 .featured-image img{display:block;width:100%;height:100%;object-fit:cover}
 .featured-copy{min-width:0}
@@ -31,12 +31,12 @@ html{scroll-behavior:smooth}body{background:#e5d8c4;color:#392a1f}body,button,in
 .featured-copy h3{margin:0;font:400 clamp(24px,2.3vw,32px)/1.7 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.02em;text-wrap:pretty}
 .featured-copy h3 a:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 .featured-copy>.featured-excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;font-size:14px;line-height:2;color:#6b5847;margin:22px 0 0}
-@media(max-width:900px){.featured-article{gap:28px}.featured-copy h3{font-size:24px}.featured-copy>.featured-excerpt{font-size:13px;margin-top:15px}}
-@media(max-width:600px){.featured-section{margin-bottom:46px}.featured-article{grid-template-columns:1fr;gap:22px}.featured-copy h3{font-size:24px;line-height:1.75}.featured-copy .article-meta{margin-bottom:12px}.featured-copy>.featured-excerpt{font-size:14px;margin-top:14px}}
+@media(max-width:900px){.featured-card-link{gap:28px}.featured-copy h3{font-size:24px}.featured-copy>.featured-excerpt{font-size:13px;margin-top:15px}}
+@media(max-width:600px){.featured-section{margin-bottom:46px}.featured-card-link{grid-template-columns:1fr;gap:22px}.featured-copy h3{font-size:24px;line-height:1.75}.featured-copy .article-meta{margin-bottom:12px}.featured-copy>.featured-excerpt{font-size:14px;margin-top:14px}}
 
 /* Match the feature photograph to the adjacent text block height. */
 @media(min-width:601px){
- .featured-article{align-items:stretch}
+ .featured-card-link{align-items:stretch}
  .featured-image{position:relative;aspect-ratio:auto;min-height:0}
  .featured-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 }
@@ -66,3 +66,10 @@ body[data-page="home"]{--fixed-header-height:max(78px,calc(50vh - max(100vh,56.2
  body,body[data-page="home"]{--fixed-header-height:88px}
  .header .nav{max-height:calc(100dvh - var(--fixed-header-height));overscroll-behavior:contain}
 }
+
+/* A single native link covers the full card without nested links. */
+.article-card-link{display:block;height:100%}
+.article-card-link,.featured-card-link{color:inherit;text-decoration:none;cursor:pointer}
+.article-card-link:hover h3,.featured-card-link:hover h3{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.article-card-link:focus-visible,.featured-card-link:focus-visible{outline:2px solid #6b5847;outline-offset:5px}
+.article-card-link .article-excerpt,.featured-card-link .featured-excerpt{text-decoration:none}
