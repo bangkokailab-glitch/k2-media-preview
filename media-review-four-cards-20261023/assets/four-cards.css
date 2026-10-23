@@ -2,7 +2,7 @@
 .layout-comparison-note{margin:0 0 24px;color:var(--muted);font-size:15px;line-height:1.8}
 .comparison-story-note{margin:0 0 6px;color:var(--muted);font-size:15px;line-height:1.6}
 @media(min-width:701px){
- .newsroom-trio{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:repeat(3,auto);column-gap:32px;row-gap:18px}
+ .newsroom-trio{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:repeat(3,1fr);column-gap:32px;row-gap:18px}
  .newsroom-trio.newsroom-reverse{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
  .newsroom-card-large{grid-row:1 / span 3}
  .newsroom-card-large .article-card-link{justify-content:space-between}
@@ -24,7 +24,7 @@
  .newsroom-card:not(.newsroom-card-large) .article-meta .date{display:block;white-space:nowrap}
 }
 
-/* Align the opening images in Latest without changing the other rows. */
+/* Equal-height rows and top alignment keep all three thumbnails evenly spaced. */
 @media(min-width:851px){
- .newsroom-latest .newsroom-card:nth-child(2) .article-card-link{align-items:start}
+ .newsroom-card:not(.newsroom-card-large) .article-card-link{align-items:start}
 }
