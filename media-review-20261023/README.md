@@ -1,5 +1,7 @@
-# K2 active development preview
+# K2 media review — 2026-10-23
 
-Working media routes, sample articles and simulated contact form. Guide and profile remain outside this build. No real enquiry is sent. This is a public, noindex development preview.
+Separate review of the October 23 client feedback. The existing client-preview and development URLs remain available. Public, noindex test pages; sample articles and dates, simulated contact form, no real enquiry delivery.
 
-Newest-first feed: first page 1 lead + 2 secondary + 6 regular entries. Later pages use the regular grid. Content and publication dates remain layout samples.
+Homepage: latest three articles, then three articles for each of the five categories (18 display slots). One large card plus two smaller cards alternate sides. Category links and the archive page remain within this review path. Article text is limited to 620px with 15px body text. Guide, FAQ and profile destination pages are still pending.
+
+The sample article “専門家の助言を、自分の判断につなげるには” is classified as Column in this review copy to provide three sample cards. Final editorial categories and production CMS integration are not yet configured.
