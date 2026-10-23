@@ -49,3 +49,13 @@ body[data-page="article"] .author-block .portrait-preview-note{grid-column:1 / -
  body[data-page="article"] .discovery-sidebar{display:block}
  body[data-page="article"] .discovery-sidebar section+section{margin-top:32px}
 }
+
+/* Whole-card anchors are the layout container on small article screens. */
+@media(max-width:600px){
+ body[data-page="article"] .related-articles .article-card{display:block}
+ body[data-page="article"] .related-articles .article-card-link{display:grid;grid-template-columns:105px minmax(0,1fr);gap:18px;align-items:start}
+}
+
+/* Keep article illustrations proportional at the narrower reading measure. */
+body[data-page="article"] .entry-cover{height:auto;aspect-ratio:1.65;object-fit:cover}
+body[data-page="article"] .entry-figure img{height:auto}
