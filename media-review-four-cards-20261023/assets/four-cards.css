@@ -23,3 +23,8 @@
  .newsroom-card:not(.newsroom-card-large) .article-meta{flex-wrap:wrap;justify-content:flex-start}
  .newsroom-card:not(.newsroom-card-large) .article-meta .date{display:block;white-space:nowrap}
 }
+
+/* Align the opening images in Latest without changing the other rows. */
+@media(min-width:851px){
+ .newsroom-latest .newsroom-card:nth-child(2) .article-card-link{align-items:start}
+}
