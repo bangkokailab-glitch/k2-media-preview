@@ -47,10 +47,10 @@ function newsroomCard(a,index,{latest=false,large=false}={}){
 }
 function newsroomGroup({items,id,title,en,index=0,latest=false,url=''}){
  const reverse=index%2===1;
- return `<section class="newsroom-group${latest?' newsroom-latest':''}" aria-labelledby="${id}-title" data-category="${latest?'latest':id}"><div class="newsroom-heading"><div><p class="eyebrow">${String(index+1).padStart(2,'0')} / ${en}</p><h2 id="${id}-title">${title}</h2></div>${url?`<a class="newsroom-view-all" href="${url}">すべて見る <span aria-hidden="true">→</span></a>`:''}</div><div class="newsroom-trio${reverse?' newsroom-reverse':''}">${items.slice(0,3).map((a,i)=>newsroomCard(a,i,{latest,large:i===0})).join('')}</div></section>`;
+ return `<section class="newsroom-group${latest?' newsroom-latest':''}" aria-labelledby="${id}-title" data-category="${latest?'latest':id}"><div class="newsroom-heading"><div><p class="eyebrow">${String(index+1).padStart(2,'0')} / ${en}</p><h2 id="${id}-title">${title}</h2></div>${url?`<a class="newsroom-view-all" href="${url}">すべて見る</a>`:''}</div><div class="newsroom-trio${reverse?' newsroom-reverse':''}">${items.slice(0,3).map((a,i)=>newsroomCard(a,i,{latest,large:i===0})).join('')}</div></section>`;
 }
 function homeFeed(){
- return `<div id="article-list" class="newsroom-feed">${newsroomGroup({items:articles,id:'latest',title:'新着記事',en:'LATEST STORIES',latest:true})}${categories.map((c,i)=>newsroomGroup({items:articles.filter(a=>a.category===c.slug),id:c.slug,title:c.name,en:c.en,index:i+1,url:path('category/'+c.slug+'/')})).join('')}<div class="newsroom-all"><a class="newsroom-view-all" href="${path('archive/')}">すべての記事を見る <span aria-hidden="true">→</span></a></div></div>`;
+ return `<div id="article-list" class="newsroom-feed">${newsroomGroup({items:articles,id:'latest',title:'新着記事',en:'LATEST STORIES',latest:true})}${categories.map((c,i)=>newsroomGroup({items:articles.filter(a=>a.category===c.slug),id:c.slug,title:c.name,en:c.en,index:i+1,url:path('category/'+c.slug+'/')})).join('')}<div class="newsroom-all"><a class="newsroom-view-all" href="${path('archive/')}">すべての記事を見る</a></div></div>`;
 }
 function home(){return `${header(true)}${hero()}<main id="main-content"><section class="reading-region">${categoryNav()}<div class="wrap newsroom-wrap">${homeFeed()}</div></section>${banner()}</main>`}
 function archive(){return `${header()}<main id="main-content">${crumbs([['すべての記事']])}<section class="wrap listing-area">${intro('ALL ARTICLES','すべての記事')}${listing(articles)}</section>${banner()}</main>`}

@@ -34,6 +34,20 @@
  .newsroom-card .article-info h3{font-size:20px}
  .newsroom-card-large .article-info h3{font-size:24px}
 }
+/* Desktop density: retain type sizes and the mobile reading layout. */
+@media(min-width:701px){
+ .newsroom-group{padding-bottom:36px;margin-bottom:36px}
+ .newsroom-heading{margin-bottom:20px}
+ .newsroom-trio{gap:24px}
+ .newsroom-card .article-image{height:clamp(92px,calc(12.5vw - 68px),112px);aspect-ratio:auto}
+ .newsroom-card-large .article-image{position:relative;height:auto;min-height:0;flex:1}
+ .newsroom-card-large .article-image img{position:absolute;inset:0}
+ .newsroom-card .article-info{flex-shrink:0}
+ .newsroom-card .article-info{padding-top:12px}
+ .newsroom-card .article-meta{margin-bottom:8px}
+ .newsroom-card .article-excerpt{margin-top:10px}
+ .newsroom-card .latest-position{margin-bottom:6px}
+}
 @media(max-width:700px){
  .header .brand{width:min(260px,calc(100vw - 100px));flex-basis:auto}
  .newsroom-wrap{padding-top:38px;padding-bottom:44px}
