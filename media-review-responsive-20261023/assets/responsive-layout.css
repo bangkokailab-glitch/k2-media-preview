@@ -44,11 +44,8 @@
  .categories>a:hover{background:#dfccb1}
  .categories>a[aria-current]:hover{background:#493626}
  .mobile-guide-break{display:block;margin:0 0 40px}
- .mobile-guide-link{position:relative;isolation:isolate;display:flex;align-items:center;min-height:128px;padding:26px 30px;overflow:hidden;color:#f6eedf;text-decoration:none}
- .mobile-guide-link>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center 58%}
- .mobile-guide-link::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(15,11,7,.86),rgba(15,11,7,.4))}
- .mobile-guide-link .eyebrow{font-size:10px;letter-spacing:.16em;margin:0 0 9px;color:#d9c49c}
- .mobile-guide-link h2{font:500 24px/1.6 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.03em;margin:0}
+ .mobile-guide-link{display:block;width:100%;padding:0;line-height:0;text-decoration:none}
+ .mobile-guide-link>img{display:block;width:100%;height:auto;aspect-ratio:920 / 216}
  .mobile-guide-link:focus-visible{outline:3px solid #8d6d3f;outline-offset:4px}
 }
 @media(max-width:600px){
@@ -66,8 +63,6 @@
  .newsroom-card.newsroom-card-large .article-info h3{font-size:19px;line-height:1.65}
  .newsroom-card .article-meta{margin-bottom:7px;gap:2px 8px}
  .mobile-guide-break{margin-bottom:32px}
- .mobile-guide-link{min-height:110px;padding:22px 20px}
- .mobile-guide-link h2{font-size:21px;letter-spacing:0}
  .categories{gap:8px;padding:18px 0}
  .categories>a{padding:9px 12px}
 }

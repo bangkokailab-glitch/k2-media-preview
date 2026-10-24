@@ -24,3 +24,6 @@ Guide, profile, FAQ, service LP, login and real form delivery are not implemente
 
 ## Paired comparison update — 2026-10-24
 The original 18-slot comparison at `media-review-20261023/` now receives the same phone/tablet layout and hero treatment. This version retains the 24-slot desktop alternative. Both can be reviewed on any device without routing visitors to a separate mobile-only URL.
+
+## Guide banner update — 2026-10-25
+The compact guide entrance after Latest uses the selected A creative (920×216), including the right chevron. Its full aspect ratio is preserved without cropping or extra text overlays. This remains phone-only, and the client preview keeps navigation disabled. The separate bottom philosophy banner is unchanged.
