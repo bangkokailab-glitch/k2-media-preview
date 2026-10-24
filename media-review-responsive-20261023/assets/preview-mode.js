@@ -1,0 +1,36 @@
+// Client review is display-only. Keep markup/layout and text selection intact.
+export function initPreviewMode(root) {
+  root.querySelectorAll('a').forEach(link => {
+    for (const attribute of ['href', 'target', 'download', 'ping', 'data-pending']) {
+      link.removeAttribute(attribute);
+    }
+    link.dataset.previewInert = '';
+    link.setAttribute('role', 'link');
+    link.setAttribute('aria-disabled', 'true');
+    link.setAttribute('tabindex', '-1');
+    link.setAttribute('draggable', 'false');
+  });
+  const isPreviewLink = event => event.target instanceof Element &&
+    event.target.closest('[data-preview-inert]');
+  const stop = event => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  };
+  ['click', 'auxclick', 'dragstart'].forEach(type => {
+    root.addEventListener(type, event => {
+      if (isPreviewLink(event)) stop(event);
+    }, true);
+  });
+  root.addEventListener('keydown', event => {
+    if (isPreviewLink(event) && ['Enter', ' '].includes(event.key)) stop(event);
+  }, true);
+  // Prevent search/contact navigation even when a lower-page URL is opened directly.
+  root.querySelectorAll('form').forEach(form => {
+    form.removeAttribute('action');
+    form.removeAttribute('target');
+    form.querySelectorAll('button[type="submit"], input[type="submit"]').forEach(button => {
+      button.disabled = true;
+    });
+  });
+  root.addEventListener('submit', stop, true);
+}

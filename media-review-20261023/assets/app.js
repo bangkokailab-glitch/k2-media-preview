@@ -1,3 +1,4 @@
+import {initPreviewMode} from './preview-mode.js?v=20261024-inert1';
 import {initBackgroundVideo} from './background-video.js?v=20261024-hero1';
 import {articles} from './articles.js';
 import {staticPages} from './content-static.js';
@@ -69,6 +70,7 @@ function review(){const links=[['トップページ',path()],['すべての記�
 function notFound(){return `${header()}<main id="main-content"><div class="basic-page">${intro('NOT FOUND','ページが見つかりませんでした。')}<a class="solid-button" href="${path()}">メディアトップへ</a></div></main>`}
 const renderers={home,archive,category,article,search,tags:tagPage,company:()=>staticPage('company'),privacy:()=>staticPage('privacy'),terms:()=>staticPage('terms'),contact,review,'not-found':notFound};
 document.querySelector('#app').innerHTML=`<a class="skip-link" href="#main-content">本文へ</a><div class="site theme-b option-b1">${(renderers[page]||notFound)()}${footer()}</div><dialog id="destination-dialog" aria-labelledby="destination-title"><button class="dialog-close" aria-label="閉じる">閉じる</button><p class="eyebrow">PREVIEW</p><h2 id="destination-title"></h2><p id="destination-description"></p><button class="solid-button" data-close-dialog>ページに戻る</button></dialog>`;
+initPreviewMode(document.querySelector('#app'));
 const dialog=document.querySelector('#destination-dialog');const destinations={guide:['ガイド01への入口です','ガイド01・02・03とFAQは、別工程で制作します。このテストではメディア側の配置と導線をご確認いただけます。'],profile:['プロフィールへの入口です','プロフィールは、別工程で制作します。記事末の著者紹介とサイドメニューからご案内する予定です。'],service:['サービスLPへの入口です','本番では、確定したサービスLPへ移動します。このテストでは実際のお申込み・事前アンケートには進みません。']};
 document.querySelectorAll('[data-pending]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();closeMenu();const [title,description]=destinations[a.dataset.pending];document.querySelector('#destination-title').textContent=title;document.querySelector('#destination-description').textContent=description;dialog.showModal()}));
 document.querySelectorAll('.dialog-close,[data-close-dialog]').forEach(b=>b.addEventListener('click',()=>dialog.close()));dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
