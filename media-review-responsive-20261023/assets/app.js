@@ -1,4 +1,4 @@
-import {initBackgroundVideo} from './background-video.js?v=20261023-responsive1';
+import {initBackgroundVideo} from './background-video.js?v=20261024-hero1';
 import {articles} from './articles.js';
 import {staticPages} from './content-static.js';
 const ROOT=new URL('../',import.meta.url), ASSETS=new URL('./media/',import.meta.url), PHOTOS=new URL('./photos/',import.meta.url);

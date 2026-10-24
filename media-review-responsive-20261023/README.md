@@ -4,8 +4,8 @@ Separate test version of the LINE feedback. The approved/current comparison at `
 
 ## Layout
 
-- At viewport widths up to and including 1100px: latest 3 stories, a compact Guide entrance, then 5 categories with 2 stories each (13 visible display slots). Each group alternates the photo left/right. All 13 cards show category, date and headline without excerpts. Surplus desktop cards use `display:none` and are excluded from keyboard navigation.
-- Above 1100px: the current six groups of one large and three small cards remain (24 display slots). The large card alternates sides by group. Existing large-card excerpts remain.
+- At viewport widths up to and including 1100px, or on coarse-pointer/touch devices (including wide landscape tablets): latest 3 stories, a compact Guide entrance, then 5 categories with 2 stories each (13 visible display slots). Each group alternates the photo left/right. All 13 cards show category, date and headline without excerpts. Surplus desktop cards use `display:none` and are excluded from keyboard navigation.
+- Above 1100px on desktop pointing devices: the current six groups of one large and three small cards remain (24 display slots). The large card alternates sides by group. Existing large-card excerpts remain.
 - Category navigation stays on one horizontally scrollable row on mobile/tablet; category headings are stronger. Category/date/link text stays at least 15px.
 - The existing full-width Guide banner and black footer remain below the feed. The compact middle banner appears only on mobile/tablet and is separate from the bottom banner.
 
@@ -21,3 +21,6 @@ Separate test version of the LINE feedback. The approved/current comparison at `
 The existing 20 sample stories are reused. Latest stories also appear in their categories, so display-slot counts are not distinct-story counts. Dates and article bodies are placeholders. No WordPress/date-based feed is connected.
 
 Guide, profile, FAQ, service LP, login and real form delivery are not implemented in this preview. Existing pending-link dialogs explain those destinations. This is a test comparison, not a production launch. No email/LINE operation is part of this revision.
+
+## Paired comparison update — 2026-10-24
+The original 18-slot comparison at `media-review-20261023/` now receives the same phone/tablet layout and hero treatment. This version retains the 24-slot desktop alternative. Both can be reviewed on any device without routing visitors to a separate mobile-only URL.

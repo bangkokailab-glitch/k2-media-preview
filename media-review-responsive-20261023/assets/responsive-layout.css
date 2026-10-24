@@ -1,8 +1,11 @@
-/* LINE comparison. Desktop preserves the 24-slot editorial layout.
+/* Existing comparison labels stay outside the editorial content. */
+.mobile-review-note{display:none}
+/* Shared phone/tablet treatment. Each desktop comparison retains its own layout.
    Mobile/tablet: latest 3 + guide entrance + 5 categories x 2. */
 .mobile-guide-break{display:none}
-@media(max-width:1100px){
+@media(max-width:1100px), (pointer:coarse){
  .newsroom-wrap{padding-top:36px;padding-bottom:44px}
+ .mobile-review-note{display:block;margin:0 0 24px;color:var(--muted);font-size:15px;line-height:1.8}
  .newsroom-group{padding-bottom:32px;margin-bottom:32px}
  .newsroom-heading{align-items:center;gap:16px;margin-bottom:24px}
  .newsroom-heading h2{font-size:30px;font-weight:600;line-height:1.5;letter-spacing:.025em}
@@ -21,6 +24,7 @@
  .newsroom-card.newsroom-card-large .article-image{
    grid-column:1;grid-row:1;position:relative;aspect-ratio:5 / 3;width:100%;height:auto;min-height:0;flex:none
  }
+ .newsroom-card .article-info{border:0}
  .newsroom-card .article-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
  .newsroom-card .article-info,
  .newsroom-card.newsroom-card-large .article-info{grid-column:2;grid-row:1;padding:0;min-width:0;align-self:start}
@@ -49,7 +53,7 @@
 }
 @media(max-width:600px){
  .newsroom-wrap{padding-top:28px}
- .layout-comparison-note{margin-bottom:26px}
+ .layout-comparison-note,.mobile-review-note{margin-bottom:26px}
  .newsroom-heading{gap:10px;margin-bottom:20px}
  .newsroom-heading h2{font-size:25px;letter-spacing:.01em}
  .newsroom-heading .eyebrow{font-size:10px;margin-bottom:6px}
