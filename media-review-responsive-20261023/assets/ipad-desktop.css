@@ -1,0 +1,31 @@
+/* iPad review: show the same article groups and navigation items as desktop.
+   Portrait tablets get two header rows so 15px labels never have to shrink. */
+@media (min-width:768px) and (max-width:1100px){
+ body,body[data-page="home"]{--fixed-header-height:132px}
+ .header,.header.menu-open{height:132px;background:#000}
+ .header .header-inner{position:relative;display:grid;grid-template-columns:1fr;grid-template-rows:76px 44px;align-content:center;width:calc(100% - 48px);max-width:1200px;height:132px;padding:0;gap:0}
+ .header .brand{grid-row:1;width:260px;align-self:center}
+ .header .brand img{width:100%;height:auto}
+ .header .menu-toggle{display:none}
+ .header .nav,.header.menu-open .nav{grid-row:2;display:flex;position:static;flex-flow:row nowrap;align-items:center;justify-content:flex-start;width:100%;max-height:none;overflow:visible;padding:0;margin:0;gap:28px;background:transparent;box-shadow:none;white-space:nowrap}
+ .header .nav>a{font-size:15px;line-height:1.7;min-height:44px}
+ .header .nav .future-login{position:absolute;top:12px;right:0;min-width:216px;height:62px;margin:0;padding:8px 12px;order:0;gap:3px}
+ .header .nav .future-login small,.header .nav .future-login strong{font-size:15px}
+ .hero{--header-band:132px;height:calc(56.25vw + 164px)}
+ .hero>.background,.hero>.film{inset:132px 0 auto;height:56.25vw}
+ .hero-copy{inset:132px 0 32px}
+ .reading-region>.categories,.newsroom-wrap{width:calc(100% - 48px)}
+ .newsroom-trio,.newsroom-trio.newsroom-reverse{display:grid;column-gap:24px;row-gap:20px}
+ .newsroom-card .article-meta{flex-wrap:wrap;gap:3px 12px}
+ .newsroom-card .article-meta .date{white-space:nowrap}
+ .newsroom-card .article-info h3{font-size:20px;line-height:1.65}
+ .newsroom-card-large .article-info h3{font-size:24px}
+}
+
+@media(min-width:768px) and (max-width:1100px){
+ .newsroom-trio{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:repeat(3,1fr)}
+ .newsroom-trio.newsroom-reverse{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+ .newsroom-card-large{grid-row:1 / span 3}
+ .newsroom-card-large .article-card-link{justify-content:space-between}
+ .newsroom-card:not(.newsroom-card-large) .article-card-link{grid-template-columns:88px minmax(0,1fr);gap:14px;align-items:start}
+}

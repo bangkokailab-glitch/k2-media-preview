@@ -1,9 +1,9 @@
 /* Existing comparison labels stay outside the editorial content. */
 .mobile-review-note{display:none}
-/* Shared phone/tablet treatment. Each desktop comparison retains its own layout.
-   Mobile/tablet: latest 3 + guide entrance + 5 categories x 2. */
+/* Phone treatment only. Tablets retain each desktop comparison.
+   Phone: latest 3 + guide entrance + 5 categories x 2. */
 .mobile-guide-break{display:none}
-@media(max-width:1100px), (pointer:coarse){
+@media(max-width:767px){
  .newsroom-wrap{padding-top:36px;padding-bottom:44px}
  .mobile-review-note{display:block;margin:0 0 24px;color:var(--muted);font-size:15px;line-height:1.8}
  .newsroom-group{padding-bottom:32px;margin-bottom:32px}
