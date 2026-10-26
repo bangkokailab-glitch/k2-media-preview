@@ -13,14 +13,12 @@
 .author-card-proposal span.acp-link{cursor:default}
 .author-card-proposal a.acp-link:hover{background:#e7dccb}
 .author-card-proposal a.acp-link:focus-visible{outline:2px solid #8a704c;outline-offset:4px}
-.author-card-proposal .acp-note{font-size:15px;line-height:1.6;color:#796956}
 .author-card-proposal.acp-after{margin:48px 0 56px}
 /* A: one horizontal identity row, then a full-width reading area. */
 .author-card-proposal.acp-card-a{padding:26px 28px;border-top:1px solid #ac9575}
 .author-card-proposal.acp-card-a .acp-eyebrow{margin-bottom:18px}
 .author-card-proposal.acp-card-a .acp-details{margin-top:20px}
 .author-card-proposal.acp-card-a .acp-link{margin-top:18px}
-.author-card-proposal.acp-card-a .acp-note{margin-top:20px}
 .author-card-proposal.acp-card-a.acp-sidebar{--acp-photo:56px;padding:22px 20px}
 .author-card-proposal.acp-card-a.acp-sidebar .acp-identity{gap:14px}
 .author-card-proposal.acp-card-a.acp-sidebar .acp-nameplate h2{font-size:23px}
@@ -32,7 +30,6 @@
 .author-card-proposal.acp-card-b .acp-nameplate h2{font-size:24px;white-space:nowrap}
 .author-card-proposal.acp-card-b .acp-details{grid-column:2;grid-row:2;min-width:0;align-self:center}
 .author-card-proposal.acp-card-b .acp-link{margin-top:18px}
-.author-card-proposal.acp-card-b .acp-note{grid-column:1/-1;margin-top:22px;padding-top:16px;border-top:1px solid #d1bfa6}
 .author-card-proposal.acp-card-b.acp-sidebar{--acp-photo:48px;grid-template-columns:82px minmax(0,1fr);column-gap:14px;padding:22px 18px}
 .author-card-proposal.acp-card-b.acp-sidebar .acp-identity{padding-right:8px}
 .author-card-proposal.acp-card-b.acp-sidebar .acp-nameplate h2{font-size:21px;letter-spacing:0}
@@ -46,7 +43,6 @@
 .author-card-proposal.acp-card-c .acp-details{width:100%;max-width:420px;margin:20px auto 0}
 .author-card-proposal.acp-card-c .acp-bio{text-align:left}
 .author-card-proposal.acp-card-c .acp-link{min-width:216px;margin-top:20px}
-.author-card-proposal.acp-card-c .acp-note{margin-top:20px}
 .author-card-proposal.acp-card-c.acp-sidebar{padding:24px 20px}
 .author-card-proposal.acp-card-c.acp-sidebar .acp-link{min-width:0;width:100%}
 @media(max-width:1050px){body[data-page="article"] .discovery-sidebar>.acp-sidebar{display:none}}

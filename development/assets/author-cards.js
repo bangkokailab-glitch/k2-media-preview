@@ -15,5 +15,5 @@ export function renderAuthorCard(variant, place, {photoUrl, interactive = false}
   const action = interactive
     ? `<a class="acp-link" href="#profile" data-pending="profile">${label}</a>`
     : `<span class="acp-link" aria-disabled="true">${label}</span>`;
-  return `<section class="author-card-proposal acp-${design.id} acp-${position}" aria-labelledby="${id}"><p class="acp-eyebrow">AUTHOR</p><div class="acp-identity"><img class="acp-portrait" src="${escapeHTML(photoUrl)}" alt="河合 圭（著者写真・仮配置）" width="300" height="300" loading="lazy" decoding="async"><div class="acp-nameplate"><h2 id="${id}">河合 圭</h2><p class="acp-role">K2 Family Office</p></div></div><div class="acp-details"><p class="acp-bio">事業・資産・家族をつなぎ、経営者のこれからを考える視点をお届けします。</p>${action}</div><p class="acp-note">写真は仮配置です。</p></section>`;
+  return `<section class="author-card-proposal acp-${design.id} acp-${position}" aria-labelledby="${id}"><p class="acp-eyebrow">AUTHOR</p><div class="acp-identity"><img class="acp-portrait" src="${escapeHTML(photoUrl)}" alt="河合 圭（著者写真）" width="300" height="300" loading="lazy" decoding="async"><div class="acp-nameplate"><h2 id="${id}">河合 圭</h2><p class="acp-role">K2 Family Office</p></div></div><div class="acp-details"><p class="acp-bio">事業・資産・家族をつなぎ、経営者のこれからを考える視点をお届けします。</p>${action}</div></section>`;
 }

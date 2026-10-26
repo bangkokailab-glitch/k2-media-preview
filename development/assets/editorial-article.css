@@ -70,11 +70,12 @@ body[data-article-layout="editorial"] .keypoints-list li{position:relative;font-
  .qa-question-row{grid-template-columns:36px minmax(0,1fr);gap:11px}
  .qa-person-icon{width:36px;height:36px}
  .qa-question-bubble{padding:12px 13px}
- .qa-answer-row{margin-left:0;grid-template-columns:1fr;gap:10px}
- .qa-brand{grid-row:1;padding:0;justify-self:end}
- .qa-answer-bubble:after{top:-7px;right:25px}
- .qa-answer-bubble{padding:16px}
- .qa-brand img{width:64px}
+ .qa-answer-row{margin-left:0;grid-template-columns:minmax(0,1fr) 52px;gap:12px}
+ .qa-answer-bubble{grid-column:1;grid-row:1;min-width:0}
+ .qa-brand{grid-column:2;grid-row:1;padding-top:20px;justify-self:end}
+ .qa-answer-bubble:after{top:30px;right:-6px;width:12px;height:12px}
+ .qa-answer-bubble{padding:14px}
+ .qa-brand img{width:52px;height:auto;display:block}
  .article-risk{grid-template-columns:38px minmax(0,1fr);gap:15px;padding:18px 15px}
  .risk-icon{padding-right:12px}
  .risk-icon svg{width:27px;height:27px}
@@ -83,11 +84,6 @@ body[data-article-layout="editorial"] .keypoints-list li{position:relative;font-
  .article-keypoints{grid-template-columns:1fr;gap:17px;padding:18px}
  .keypoints-brand{flex-direction:row;justify-content:space-between;border-right:0;border-bottom:1px solid #c9b79b;padding:0 0 13px}
  .keypoints-brand img{width:68px}
-}
-@media(max-width:374px){
- .qa-answer-row{grid-template-columns:1fr;margin-left:0;gap:10px}
- .qa-brand{grid-row:1;padding:0;justify-self:end}
- .qa-answer-bubble:after{top:-7px;right:25px}
 }
 /* Reusable reading sequence: conversation, note, guide, contents, body, summary. */
 body[data-article-layout="editorial"] .editorial-introduction p{margin:0 0 8px}
@@ -105,15 +101,19 @@ body[data-article-layout="editorial"] .editorial-toc li{font-size:15px;line-heig
 body[data-article-layout="editorial"] .editorial-toc ol ol{list-style:none;border-left:1px solid #d3c4ad;padding-left:16px;margin:0 0 6px 2px}
 .editorial-toc a{display:flex;align-items:center;min-height:44px;text-decoration:none;color:#4c3d2b;padding:6px 0}
 .editorial-toc a:hover{text-decoration:underline;text-underline-offset:4px}
-.article-guide-action{margin:32px 0 8px;padding:26px 0 0;border-top:1px solid #cab99f}
-body[data-article-layout="editorial"] .article-guide-action .guide-action-copy{font-size:15px;line-height:2;margin:0 0 16px;color:#594634}
-.article-guide-action .guide-action-link{display:inline-flex;align-items:center;justify-content:center;min-height:48px;max-width:100%;padding:12px 24px;border:1px solid #9d8668;background:#eee5d6;color:#3e3428;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-size:15px;line-height:1.7;text-align:center;text-decoration:none}
-.article-guide-action .guide-action-link:hover{background:#e4d7c2}
-.editorial-toc a:focus-visible,.article-guide-action a:focus-visible,.article-guide-banner a:focus-visible{outline:2px solid #8a704c;outline-offset:4px}
+.editorial-toc a:focus-visible,.article-guide-banner a:focus-visible{outline:2px solid #8a704c;outline-offset:4px}
 @media(max-width:600px){
  .editorial-toc{padding:22px 18px;margin-bottom:34px}
  body[data-article-layout="editorial"] .editorial-prose h3{font-size:18px}
  .article-guide-banner{margin:26px 0 30px}
- .article-guide-action{padding-top:22px}
- .article-guide-action .guide-action-link{width:100%;padding:12px 18px}
 }
+
+/* Selected article flow: summary points, conversation, closing, author, guide. */
+.editorial-summary>.article-keypoints{margin:0 0 28px}
+.article-end-divider{border:0;border-top:1px solid #b7a48a;margin:40px 0 28px}
+body[data-article-layout="editorial"] .article-after>.acp-after{margin:0 0 28px}
+.article-after>.article-guide-banner{margin:0 0 44px}
+.sidebar-guide-banner{margin:0 0 32px}
+.sidebar-guide-banner img{width:100%;height:auto;aspect-ratio:1;object-fit:contain}
+body[data-article-layout="editorial"] .related-articles .article-info h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;line-height:1.8;height:3.6em;min-height:3.6em}
+@media(max-width:1050px){.discovery-sidebar>.sidebar-guide-banner{display:none}}
