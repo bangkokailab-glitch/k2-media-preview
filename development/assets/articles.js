@@ -692,7 +692,7 @@ export const articles = [
   {
     "slug": "turn-advice-into-your-decision",
     "title": "専門家の助言を、自分の判断につなげるには",
-    "category": "family-office",
+    "category": "column",
     "image": "notebook.png",
     "alt": "相談内容と考えを整理するノート",
     "tags": [
@@ -867,6 +867,56 @@ export const articles = [
       "拠点の役割を日常の場面で考える",
       "日本とのつながりと負担を見る",
       "持つこと自体を目的にしない"
+    ]
+  },
+  {
+    "slug": "comparison-family-office-start",
+    "title": "ファミリーオフィスを考える前に、整理しておきたいこと",
+    "category": "family-office",
+    "image": "library.png",
+    "alt": "比較表示用の仮画像",
+    "tags": [
+      "比較表示用"
+    ],
+    "intro": "事業、資産、家族について、決まっていることと、まだ迷っていることを書き出してみる。相談の出発点を見つけるために、まずは自分の現在地を整理します。",
+    "comparisonOnly": true,
+    "sections": [
+      {
+        "id": "comparison-only",
+        "title": "比較表示用の仮記事です",
+        "paragraphs": [
+          "大きい記事1件と小さい記事3件の配置を確認するために追加した仮記事です。タイトルと導入文は配置サンプルであり、河合様による確定原稿ではありません。",
+          "本文の制作・公開を予定した記事ではありません。実際の記事内容は、企画の確認後に別途制作します。"
+        ]
+      }
+    ],
+    "points": [
+      "このページは比較表示用です。正式な記事内容ではありません。"
+    ]
+  },
+  {
+    "slug": "comparison-time-for-next-decade",
+    "title": "これからの10年に、残したい時間は何か",
+    "category": "column",
+    "image": "article-life.webp",
+    "alt": "比較表示用の仮画像",
+    "tags": [
+      "比較表示用"
+    ],
+    "intro": "仕事に使う時間だけでなく、家族と過ごす時間や、新しいことを学ぶ時間も考えてみる。将来の予定を埋める前に、自分が大切にしたい日常を言葉にします。",
+    "comparisonOnly": true,
+    "sections": [
+      {
+        "id": "comparison-only",
+        "title": "比較表示用の仮記事です",
+        "paragraphs": [
+          "大きい記事1件と小さい記事3件の配置を確認するために追加した仮記事です。タイトルと導入文は配置サンプルであり、河合様による確定原稿ではありません。",
+          "本文の制作・公開を予定した記事ではありません。実際の記事内容は、企画の確認後に別途制作します。"
+        ]
+      }
+    ],
+    "points": [
+      "このページは比較表示用です。正式な記事内容ではありません。"
     ]
   }
 ];

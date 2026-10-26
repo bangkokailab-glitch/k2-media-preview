@@ -7,6 +7,7 @@ export function initBackgroundVideo(siteAsset) {
 
   const poster = hero.querySelector('picture.hero-poster img, img.hero-poster');
   const mobile = matchMedia('(max-width:600px)');
+  const tablet = matchMedia('(min-width:601px) and (max-width:1100px), (min-width:601px) and (pointer:coarse)');
   const reduce = matchMedia('(prefers-reduced-motion:reduce)');
   const bounds = hero.getBoundingClientRect();
   let inView = bounds.bottom > 0 && bounds.top < innerHeight;
@@ -49,13 +50,13 @@ export function initBackgroundVideo(siteAsset) {
   };
 
   const updatePoster = () => {
-    const still = siteAsset(mobile.matches ? 'poster-mobile.webp' : 'poster-desktop.webp');
+    const still = siteAsset(mobile.matches ? 'poster-mobile.webp' : tablet.matches ? 'poster-tablet.webp' : 'poster-desktop.webp');
     if (video.poster !== still) video.poster = still;
     if (poster && poster.src !== still) poster.src = still;
   };
 
   const ensureSource = () => {
-    const next = siteAsset(mobile.matches ? 'k2-hero-mobile-v2.mp4' : 'k2-hero-desktop-v2.mp4');
+    const next = siteAsset(mobile.matches ? 'k2-hero-mobile-v2.mp4' : tablet.matches ? 'k2-hero-tablet-v1.mp4' : 'k2-hero-desktop-v2.mp4');
     updatePoster();
     if (sourceURL === next) return;
     restoreTime = Number.isFinite(video.currentTime) ? video.currentTime : 0;
@@ -170,7 +171,7 @@ export function initBackgroundVideo(siteAsset) {
     }, { threshold: 0 }).observe(hero);
   }
 
-  mobile.addEventListener('change', () => {
+  for (const mode of [mobile, tablet]) mode.addEventListener('change', () => {
     updatePoster();
     if (eligible()) resume();
   });

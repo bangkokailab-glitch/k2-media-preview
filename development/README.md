@@ -1,5 +1,12 @@
-# K2 active development preview
+# K2 メディア 開発サイト
 
-Working media routes, sample articles and simulated contact form. Guide and profile remain outside this build. No real enquiry is sent. This is a public, noindex development preview.
+公開入口: https://bangkokailab-glitch.github.io/k2-media-preview/development/
 
-Newest-first feed: first page 1 lead + 2 secondary + 6 regular entries. Later pages use the regular grid. Content and publication dates remain layout samples.
+`review/` から制作済みの全ページを確認できます。トップは最新の確認用デザインを引き継ぎ、development内のページへ移動できます。クライアント向け確認用トップとは別のファイルで管理します。
+
+- 最新トップ、全記事、5カテゴリー、記事詳細、検索・タグ、会社概要、プライバシーポリシー、利用規約、問い合わせ表示。
+- 承認済みの記事雛形は `articles/business-owner-own-shares/`。著者カードはCを使用します。
+- ガイド、FAQ、プロフィール、サービスLP、ログインは準備中です。
+- 記事は正式原稿と区別する仮原稿を含み、会社情報・規約も確認用です。お問い合わせは送信されません。
+
+`node build.mjs` で各HTMLと routes.json を再生成します。クライアント確認用のファイルは変更しません。

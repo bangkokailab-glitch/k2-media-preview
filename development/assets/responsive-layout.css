@@ -1,0 +1,68 @@
+/* Existing comparison labels stay outside the editorial content. */
+.mobile-review-note{display:none}
+/* Phone treatment only. Tablets retain each desktop comparison.
+   Phone: latest 3 + guide entrance + 5 categories x 2. */
+.mobile-guide-break{display:none}
+@media(max-width:767px){
+ .newsroom-wrap{padding-top:36px;padding-bottom:44px}
+ .mobile-review-note{display:block;margin:0 0 24px;color:var(--muted);font-size:15px;line-height:1.8}
+ .newsroom-group{padding-bottom:32px;margin-bottom:32px}
+ .newsroom-heading{align-items:center;gap:16px;margin-bottom:24px}
+ .newsroom-heading h2{font-size:30px;font-weight:600;line-height:1.5;letter-spacing:.025em}
+ .newsroom-trio,.newsroom-trio.newsroom-reverse{display:flex;flex-direction:column;gap:28px}
+ .newsroom-group:not(.newsroom-latest) .newsroom-card:nth-child(n+3),
+ .newsroom-latest .newsroom-card:nth-child(n+4){display:none}
+ .newsroom-card,.newsroom-reverse .newsroom-card{grid-column:auto;grid-row:auto;width:100%;min-width:0}
+ .newsroom-card .article-card-link,
+ .newsroom-card.newsroom-card-large .article-card-link,
+ .newsroom-card:not(.newsroom-card-large) .article-card-link{
+   display:grid;grid-template-columns:minmax(0,.44fr) minmax(0,.56fr);
+   align-items:start;justify-content:normal;gap:24px;height:auto;min-height:0
+ }
+ .newsroom-card:nth-child(even) .article-card-link{grid-template-columns:minmax(0,.56fr) minmax(0,.44fr)}
+ .newsroom-card .article-image,
+ .newsroom-card.newsroom-card-large .article-image{
+   grid-column:1;grid-row:1;position:relative;aspect-ratio:5 / 3;width:100%;height:auto;min-height:0;flex:none
+ }
+ .newsroom-card .article-info{border:0}
+ .newsroom-card .article-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+ .newsroom-card .article-info,
+ .newsroom-card.newsroom-card-large .article-info{grid-column:2;grid-row:1;padding:0;min-width:0;align-self:start}
+ .newsroom-card:nth-child(even) .article-image{grid-column:2}
+ .newsroom-card:nth-child(even) .article-info{grid-column:1}
+ .newsroom-card .article-info h3,
+ .newsroom-card.newsroom-card-large .article-info h3{font-size:23px;line-height:1.65;letter-spacing:.01em;margin:0}
+ .newsroom-card .article-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:2px 12px;margin:0 0 9px;line-height:1.6}
+ .newsroom-card .article-meta span,.newsroom-card .article-meta .date{display:block;font-size:15px}
+ .newsroom-card .article-meta .date{white-space:nowrap}
+ .newsroom-card .article-excerpt{display:none}
+ .newsroom-card .latest-position{margin:0 0 6px;font-size:11px;line-height:1.5}
+ .categories{display:flex;flex-flow:row nowrap;align-items:center;gap:10px;padding:22px 0;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#ab9271 transparent}
+ .categories .eyebrow{display:none}
+ .categories>a{display:inline-flex;flex:0 0 auto;min-height:44px;padding:10px 14px;border:1px solid #ad9679;border-radius:3px;background:#f2e8d8;white-space:nowrap;font-size:15px;line-height:1.5;text-align:center}
+ .categories>a[aria-current]{background:#493626;border-color:#493626;color:#fff8ed}
+ .categories>a:hover{background:#dfccb1}
+ .categories>a[aria-current]:hover{background:#493626}
+ .mobile-guide-break{display:block;margin:0 0 40px}
+ .mobile-guide-link{display:block;width:100%;padding:0;line-height:0;text-decoration:none}
+ .mobile-guide-link>img{display:block;width:100%;height:auto;aspect-ratio:920 / 216}
+ .mobile-guide-link:focus-visible{outline:3px solid #8d6d3f;outline-offset:4px}
+}
+@media(max-width:600px){
+ .newsroom-wrap{padding-top:28px}
+ .layout-comparison-note,.mobile-review-note{margin-bottom:26px}
+ .newsroom-heading{gap:10px;margin-bottom:20px}
+ .newsroom-heading h2{font-size:25px;letter-spacing:.01em}
+ .newsroom-heading .eyebrow{font-size:10px;margin-bottom:6px}
+ .newsroom-view-all{font-size:15px}
+ .newsroom-trio,.newsroom-trio.newsroom-reverse{gap:28px}
+ .newsroom-card .article-card-link,
+ .newsroom-card.newsroom-card-large .article-card-link,
+ .newsroom-card:not(.newsroom-card-large) .article-card-link{gap:16px}
+ .newsroom-card .article-info h3,
+ .newsroom-card.newsroom-card-large .article-info h3{font-size:19px;line-height:1.65}
+ .newsroom-card .article-meta{margin-bottom:7px;gap:2px 8px}
+ .mobile-guide-break{margin-bottom:32px}
+ .categories{gap:8px;padding:18px 0}
+ .categories>a{padding:9px 12px}
+}

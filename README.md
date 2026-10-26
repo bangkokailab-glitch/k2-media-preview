@@ -1,9 +1,17 @@
-# K2 Family Office — media previews
+# K2 Family Office メディア テストサイト
 
-Client visual review: https://bangkokailab-glitch.github.io/k2-media-preview/client-preview/
+公開する入口は次の2つだけです。
 
-Active development: https://bangkokailab-glitch.github.io/k2-media-preview/development/
+- クライアント確認用: https://bangkokailab-glitch.github.io/k2-media-preview/media-review-responsive-20261023/?rev=e89b8c7
+  - 2026-10-26送信メールのトップページ。全リンクを無効化し、下層ページは公開しません。
+  - index.html と assets は今回の整理前の状態を保持しています。
+- 開発用: https://bangkokailab-glitch.github.io/k2-media-preview/development/
+  - 最新トップから記事、カテゴリー、全記事、タグ、検索、会社情報、規約、問い合わせ表示を接続。
+  - 開発用ページ一覧: development/review/
+  - 承認済み記事: development/articles/business-owner-own-shares/
 
-Client review has no working navigation links. Development has media routes, search and a simulated contact form; no real enquiry is sent. Both use the same newest-first 1 + 2 + 3-column top-page layout and readable text sizing. Article copy and publication dates remain layout samples.
+ガイド01〜03、FAQ、プロフィール、サービスLP、ログインは未実装・未接続です。準備中表示を使用し、未確定の外部URLへは接続しません。記事には配置確認用の仮原稿が含まれます。問い合わせは表示確認のみで送信しません。
 
-Earlier test routes remain unpublished.
+旧確認版・旧デザイン比較版は公開から削除しました。復元用資料はGit履歴および作業フォルダーの output/media-build/20261026-site-consolidation/retired-tests.tar.gz に保存しています。
+
+開発サイト生成: `node development/build.mjs`。クライアント確認用はこのビルドの対象外です。

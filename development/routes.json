@@ -6,6 +6,12 @@
     "title": "Media"
   },
   {
+    "route": "archive/",
+    "page": "archive",
+    "key": "",
+    "title": "すべての記事"
+  },
+  {
     "route": "search/",
     "page": "search",
     "key": "",
@@ -184,5 +190,17 @@
     "page": "article",
     "key": "overseas-base-from-daily-life",
     "title": "海外の拠点を持つという選択を、日常から考える"
+  },
+  {
+    "route": "articles/comparison-family-office-start/",
+    "page": "article",
+    "key": "comparison-family-office-start",
+    "title": "ファミリーオフィスを考える前に、整理しておきたいこと"
+  },
+  {
+    "route": "articles/comparison-time-for-next-decade/",
+    "page": "article",
+    "key": "comparison-time-for-next-decade",
+    "title": "これからの10年に、残したい時間は何か"
   }
 ]
