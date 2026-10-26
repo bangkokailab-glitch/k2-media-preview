@@ -1,0 +1,61 @@
+/* Card-only comparisons: these class names do not style existing author blocks. */
+.author-card-proposal{--acp-photo:72px;box-sizing:border-box;min-width:0;background:#efe5d5;color:#3e3428;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Arial,sans-serif;font-size:15px;line-height:1.9}
+.author-card-proposal *{box-sizing:border-box}
+.author-card-proposal p,.author-card-proposal h2{margin:0}
+.author-card-proposal .acp-eyebrow{color:#8a704c;font:11px/1.5 Georgia,serif;letter-spacing:.2em}
+.author-card-proposal .acp-identity{display:flex;align-items:center;gap:18px;min-width:0}
+.author-card-proposal .acp-portrait{display:block;width:var(--acp-photo);height:var(--acp-photo);max-width:none;flex:none;object-fit:contain;border-radius:50%;background:#fff}
+.author-card-proposal .acp-nameplate{min-width:0}
+.author-card-proposal .acp-nameplate h2{font:400 25px/1.5 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.06em;color:#3e3428;border:0;padding:0}
+.author-card-proposal .acp-role{font:15px/1.7 Georgia,serif;color:#6b5844;margin-top:3px}
+.author-card-proposal .acp-bio{font-size:15px;line-height:1.95;color:#594634;overflow-wrap:anywhere}
+.author-card-proposal .acp-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;padding:10px 18px;border:1px solid #ab9475;font-size:15px;line-height:1.6;color:#3e3428;text-decoration:none;cursor:pointer;text-align:center}
+.author-card-proposal span.acp-link{cursor:default}
+.author-card-proposal a.acp-link:hover{background:#e7dccb}
+.author-card-proposal a.acp-link:focus-visible{outline:2px solid #8a704c;outline-offset:4px}
+.author-card-proposal.acp-after{margin:48px 0 56px}
+/* A: one horizontal identity row, then a full-width reading area. */
+.author-card-proposal.acp-card-a{padding:26px 28px;border-top:1px solid #ac9575}
+.author-card-proposal.acp-card-a .acp-eyebrow{margin-bottom:18px}
+.author-card-proposal.acp-card-a .acp-details{margin-top:20px}
+.author-card-proposal.acp-card-a .acp-link{margin-top:18px}
+.author-card-proposal.acp-card-a.acp-sidebar{--acp-photo:56px;padding:22px 20px}
+.author-card-proposal.acp-card-a.acp-sidebar .acp-identity{gap:14px}
+.author-card-proposal.acp-card-a.acp-sidebar .acp-nameplate h2{font-size:23px}
+.author-card-proposal.acp-card-a.acp-sidebar .acp-link{width:100%}
+/* B: a left author column and a right reading column, including on mobile. */
+.author-card-proposal.acp-card-b{--acp-photo:64px;display:grid;grid-template-columns:146px minmax(0,1fr);column-gap:26px;padding:26px;border:1px solid #c3ae8e}
+.author-card-proposal.acp-card-b .acp-eyebrow{grid-column:1/-1;margin-bottom:20px}
+.author-card-proposal.acp-card-b .acp-identity{grid-column:1;grid-row:2;flex-direction:column;align-items:flex-start;gap:12px;padding-right:20px;border-right:1px solid #c3ae8e}
+.author-card-proposal.acp-card-b .acp-nameplate h2{font-size:24px;white-space:nowrap}
+.author-card-proposal.acp-card-b .acp-details{grid-column:2;grid-row:2;min-width:0;align-self:center}
+.author-card-proposal.acp-card-b .acp-link{margin-top:18px}
+.author-card-proposal.acp-card-b.acp-sidebar{--acp-photo:48px;grid-template-columns:82px minmax(0,1fr);column-gap:14px;padding:22px 18px}
+.author-card-proposal.acp-card-b.acp-sidebar .acp-identity{padding-right:8px}
+.author-card-proposal.acp-card-b.acp-sidebar .acp-nameplate h2{font-size:21px;letter-spacing:0}
+.author-card-proposal.acp-card-b.acp-sidebar .acp-role{line-height:1.6}
+.author-card-proposal.acp-card-b.acp-sidebar .acp-link{width:100%;padding:10px 8px}
+/* C: compact central identity; left-aligned prose keeps long Japanese text legible. */
+.author-card-proposal.acp-card-c{--acp-photo:48px;padding:28px;border:1px solid #c3ae8e;text-align:center}
+.author-card-proposal.acp-card-c .acp-eyebrow{margin-bottom:18px}
+.author-card-proposal.acp-card-c .acp-identity{flex-direction:column;align-items:center;gap:12px}
+.author-card-proposal.acp-card-c .acp-nameplate h2{font-size:24px}
+.author-card-proposal.acp-card-c .acp-details{width:100%;max-width:420px;margin:20px auto 0}
+.author-card-proposal.acp-card-c .acp-bio{text-align:left}
+.author-card-proposal.acp-card-c .acp-link{min-width:216px;margin-top:20px}
+.author-card-proposal.acp-card-c.acp-sidebar{padding:24px 20px}
+.author-card-proposal.acp-card-c.acp-sidebar .acp-link{min-width:0;width:100%}
+@media(max-width:1050px){body[data-page="article"] .discovery-sidebar>.acp-sidebar{display:none}}
+@media(max-width:600px){
+ .author-card-proposal.acp-after{margin:36px 0 42px}
+ .author-card-proposal.acp-card-a.acp-after{--acp-photo:64px;padding:22px 20px}
+ .author-card-proposal.acp-card-a.acp-after .acp-identity{gap:16px}
+ .author-card-proposal.acp-card-a.acp-after .acp-nameplate h2{font-size:24px}
+ .author-card-proposal.acp-card-a.acp-after .acp-link{width:100%}
+ .author-card-proposal.acp-card-b.acp-after{--acp-photo:56px;grid-template-columns:92px minmax(0,1fr);column-gap:16px;padding:22px 18px}
+ .author-card-proposal.acp-card-b.acp-after .acp-identity{padding-right:12px}
+ .author-card-proposal.acp-card-b.acp-after .acp-nameplate h2{font-size:22px;letter-spacing:0}
+ .author-card-proposal.acp-card-b.acp-after .acp-link{width:100%;padding:10px 8px}
+ .author-card-proposal.acp-card-c.acp-after{padding:24px 22px}
+ .author-card-proposal.acp-card-c.acp-after .acp-link{width:100%;min-width:0}
+}
