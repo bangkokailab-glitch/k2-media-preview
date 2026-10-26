@@ -32,14 +32,21 @@ function renderBlock(block, logoUrl) {
   }
 }
 
-export function renderEditorialContent(article, { logoUrl } = {}) {
+function renderCover(cover) {
+  if (!cover?.src) return '';
+  const dimension = value => Number.isInteger(value) && value > 0 ? value : 1254;
+  const responsive = `${cover.srcset ? ` srcset="${escapeHTML(cover.srcset)}"` : ''}${cover.sizes ? ` sizes="${escapeHTML(cover.sizes)}"` : ''}`;
+  return `<figure class="editorial-cover"><img src="${escapeHTML(cover.src)}"${responsive} alt="${escapeHTML(cover.alt || '')}" width="${dimension(cover.width)}" height="${dimension(cover.height)}" loading="eager" fetchpriority="high" decoding="async"></figure>`;
+}
+
+export function renderEditorialContent(article, { logoUrl, cover } = {}) {
   const sections = asList(article.sections).map((section, index) => {
     const id = section.id || `editorial-section-${index + 1}`;
     return `<section class="editorial-section" id="${escapeHTML(id)}"><h2>${escapeHTML(section.title)}</h2>${asList(section.blocks).map(block => renderBlock(block, logoUrl)).join('')}</section>`;
   }).join('');
   const points = asList(article.points);
   const keypoints = points.length ? `<section class="article-keypoints" aria-label="この記事のポイント"><div class="keypoints-brand"><p lang="en">KEY POINT</p>${brandImage(logoUrl)}</div><ol class="keypoints-list">${points.map(point => `<li>${escapeHTML(point)}</li>`).join('')}</ol></section>` : '';
-  return `<header class="editorial-heading"><p class="eyebrow">ASSETS / 資産運用</p><h1>${escapeHTML(article.title)}</h1></header><div class="article-prose editorial-prose">${paragraphs(article.introParagraphs, 'editorial-intro')}${sections}${keypoints}</div>`;
+  return `<header class="editorial-heading"><p class="eyebrow">ASSETS / 資産運用</p><h1>${escapeHTML(article.title)}</h1></header>${renderCover(cover)}<div class="article-prose editorial-prose">${paragraphs(article.introParagraphs, 'editorial-intro')}${sections}${keypoints}</div>`;
 }
 
 // Shared by full-text search; return plain strings rather than rendered markup.

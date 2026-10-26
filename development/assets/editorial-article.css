@@ -5,6 +5,8 @@ body[data-article-layout="editorial"] .site{--paper:#faf7f0;--ink:#3e3428;backgr
 .editorial-heading{margin:0 0 28px}
 .editorial-heading .eyebrow{font:11px/1.6 Georgia,serif;letter-spacing:.16em;color:#8a7458;margin:0 0 17px}
 .editorial-heading h1{font-size:30px;line-height:1.65;font-weight:400;letter-spacing:.025em;border-left:2px solid #8d775c;padding-left:18px;margin:0}
+.editorial-cover{width:100%;aspect-ratio:16/9;margin:0 0 28px;overflow:hidden;background:#eae0cf}
+.editorial-cover img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%}
 body[data-article-layout="editorial"] .editorial-prose{font-family:"Hiragino Mincho ProN","Yu Mincho",Georgia,serif;color:#3e3428;line-height:2}
 body[data-article-layout="editorial"] .editorial-prose p{font-size:15px;line-height:2;color:inherit;letter-spacing:.02em;margin:0 0 10px}
 body[data-article-layout="editorial"] .editorial-prose>.editorial-intro{margin:0}
@@ -62,6 +64,7 @@ body[data-article-layout="editorial"] .keypoints-list li{position:relative;font-
 @media(max-width:767px){
  .editorial-heading h1{font-size:26px;line-height:1.65;padding-left:14px}
  .editorial-heading{margin-bottom:24px}
+ .editorial-cover{margin-bottom:24px}
  .editorial-section{margin-top:32px}
  body[data-article-layout="editorial"] .editorial-prose h2{font-size:22px;padding-left:13px;line-height:1.7;margin-bottom:17px}
  .qa-question-row{grid-template-columns:36px minmax(0,1fr);gap:11px}
