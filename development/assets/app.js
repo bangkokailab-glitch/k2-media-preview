@@ -79,8 +79,7 @@ function articleActions(){return `<nav class="article-mobile-actions" aria-label
 function author(){if(authorVariant)return authorProposal('after');return `<section class="author-block" aria-labelledby="author-title">${authorPortrait()}<div class="author-identity"><p class="eyebrow">AUTHOR</p><h2 class="author-name" id="author-title">河合 圭</h2><p class="author-role">K2 Family Office</p></div><p class="author-bio">事業・資産・家族をつなぎ、経営者のこれからを考える視点をお届けします。</p>${pending('プロフィールを見る','profile','author-profile-link')}<p class="portrait-preview-note">写真は仮配置です。</p></section>`}
 function articleGuideBanner(place='inline'){
  const sidebar=place==='sidebar';
- if(sidebar)return `<aside class="article-guide-banner sidebar-guide-banner" aria-label="ファミリーオフィスガイド"><a href="#guide" data-pending="guide" data-guide-page="01"><span class="sidebar-guide-eyebrow" lang="en">FAMILY OFFICE GUIDE</span><span class="sidebar-guide-title">ファミリーオフィスを知る</span></a></aside>`;
- return `<aside class="article-guide-banner" aria-label="ファミリーオフィスガイド"><a class="article-guide-quiet" href="#guide" data-pending="guide" data-guide-page="01"><span class="guide-eyebrow" lang="en">FAMILY OFFICE GUIDE</span><span class="article-guide-title">ファミリーオフィスを知る</span></a></aside>`;
+ return `<aside class="article-guide-banner${sidebar?' sidebar-guide-banner':''}" aria-label="ファミリーオフィスガイド"><a class="article-guide-quiet" href="#guide" data-pending="guide" data-guide-page="01"><span class="guide-eyebrow" lang="en">FAMILY OFFICE GUIDE</span><span class="article-guide-title">${sidebar?'<span>ファミリーオフィスを</span><span>知る</span>':'ファミリーオフィスを知る'}</span><span class="article-guide-action">ガイドを読む</span></a></aside>`;
 }
 function editorialArticle(a){
  const coverStem=a.image.replace(/\.(png|webp)$/,'');
