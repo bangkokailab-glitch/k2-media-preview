@@ -1,0 +1,79 @@
+/* 2026-10-30 client feedback: discovery stays beside the article on desktop. */
+body[data-page="article"] .discovery-sidebar{border-left:0;padding-left:0}
+body[data-page="article"] .discovery-sticky{min-width:0}
+body[data-page="article"] .discovery-sticky>section+section{margin-top:28px}
+body[data-page="article"] .discovery-sticky .eyebrow{margin:0 0 8px;font-size:10px}
+body[data-page="article"] .discovery-sticky h2{font-size:19px;margin:0 0 16px}
+body[data-page="article"] .discovery-categories nav a{min-height:44px;padding:10px 0;font-size:15px}
+body[data-page="article"] .discovery-keywords .tag-list{gap:8px;overflow:visible;flex-wrap:wrap}
+body[data-page="article"] .discovery-keywords .tag-list a{font-size:15px;line-height:1.6;padding:7px 9px}
+body[data-page="article"] .discovery-end{margin-top:28px}
+body[data-page="article"] .sidebar-guide-banner{display:block;margin:0 0 12px}
+body[data-page="article"] .discovery-end .acp-sidebar{display:block;margin:0;padding:16px 18px}
+body[data-page="article"] .discovery-end .acp-eyebrow{margin:0 0 10px}
+body[data-page="article"] .discovery-end .acp-identity{gap:7px}
+body[data-page="article"] .discovery-end .acp-nameplate h2{font-size:22px;line-height:1.4;margin:0}
+body[data-page="article"] .discovery-end .acp-role{margin:3px 0 0}
+body[data-page="article"] .discovery-end .acp-details{margin:10px 0 0}
+body[data-page="article"] .discovery-end .acp-bio{display:none}
+body[data-page="article"] .discovery-end .acp-link{margin:0;width:100%;min-height:44px;padding:8px 10px}
+/* The article uses the same photograph, type and quiet action as the home guide. */
+body[data-page="article"] .article-guide-quiet{
+ min-height:236px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:0;padding:32px 18px;
+ background:linear-gradient(180deg,#110c0877,#110c08b3),url('photos/hero-c.webp') center center/cover no-repeat;
+ color:#f8f0e3;text-align:center;text-decoration:none;
+}
+.article-guide-quiet .guide-eyebrow{
+ display:block;margin:0 0 18px;color:#d8c4a4;
+ font:10px/1.5 Georgia,"Times New Roman",serif;letter-spacing:.18em;
+}
+.article-guide-title{
+ display:block;margin:0;font:400 24px/1.75 "Hiragino Mincho ProN","Yu Mincho",serif;
+ letter-spacing:.025em;text-wrap:balance;
+}
+.article-guide-action{
+ display:flex;align-items:center;justify-content:center;width:100%;max-width:260px;min-height:44px;
+ margin:24px 0 0;padding:10px 14px;border:1px solid #e7d4b599;
+ color:#f8f0e3;background:transparent;font-size:15px;line-height:1.6;letter-spacing:.04em;
+ transition:background .18s ease;
+}
+body[data-page="article"] .article-guide-quiet:hover{opacity:1}
+.article-guide-quiet:hover .article-guide-action{background:#f8f0e317}
+body[data-page="article"] .article-guide-quiet:focus-visible{outline:3px solid #8d6d3f;outline-offset:4px}
+body[data-page="article"] .sidebar-guide-banner .article-guide-quiet{background-position:70% center}
+.sidebar-guide-banner .article-guide-title{font-size:20px}
+.sidebar-guide-banner .article-guide-title>span{display:block;white-space:nowrap}
+.sidebar-guide-banner .article-guide-action{max-width:220px;margin-top:20px}
+@media(max-width:767px){.article-guide-title{font-size:clamp(20px,5.5vw,25px)}}
+@media(prefers-reduced-motion:reduce){.article-guide-action{transition:none}}
+.article-mobile-actions{display:none}
+@media(min-width:1051px){
+ body[data-page="article"] .discovery-sidebar{align-self:stretch;position:relative;min-width:0}
+ body[data-page="article"] .discovery-sticky{position:sticky;top:var(--discovery-sticky-top,124px)}
+ body[data-page="article"] .article-after>.acp-after,
+ body[data-page="article"] .article-after>.author-block,
+ body[data-page="article"] .article-after>.article-guide-banner,
+ body[data-page="article"] .editorial-prose>.article-guide-banner{display:none}
+}
+@media(max-width:1050px){
+ body[data-page="article"] .discovery-sidebar{display:block}
+ body[data-page="article"] .discovery-sticky{display:grid;grid-template-columns:1fr 1fr;gap:28px;position:static}
+ body[data-page="article"] .discovery-sticky>section+section{margin:0}
+ body[data-page="article"] .discovery-end{display:none}
+}
+@media(max-width:767px){
+ body[data-page="article"] .discovery-sticky{display:block}
+ body[data-page="article"] .discovery-sticky>section+section{margin-top:30px}
+ body[data-page="article"] .editorial-prose>.article-guide-banner{display:none}
+ body[data-page="article"] .site{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+ body[data-page="article"]{scroll-padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+ .article-mobile-actions{position:fixed;inset:auto 0 0;z-index:45;display:grid;grid-template-columns:1fr 1fr;padding:7px max(12px,env(safe-area-inset-left,0px)) calc(7px + env(safe-area-inset-bottom,0px));background:#181610;border-top:1px solid #665842;color:#d6c1a0}
+ .article-mobile-action{min-width:0;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 5px;text-align:center;text-decoration:none}
+ .article-mobile-action+.article-mobile-action{border-left:1px solid #554936}
+ .article-mobile-action .action-en{font:500 17px/1.4 Arial,sans-serif;color:#d6c1a0}
+ .article-mobile-action .action-ja{font:400 11px/1.5 "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#c5bdb0;white-space:nowrap}
+ .article-mobile-action:hover{background:#ffffff08}
+ .article-mobile-action:focus-visible{outline:2px solid #cfb58d;outline-offset:-3px}
+ body[data-page="article"] .header.menu-open .nav{max-height:calc(100dvh - var(--fixed-header-height,88px) - 80px - env(safe-area-inset-bottom,0px))}
+}
