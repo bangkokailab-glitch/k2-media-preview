@@ -119,7 +119,9 @@ body[data-page="article"] .sidebar-guide-banner .article-guide-quiet{background-
  /* 79px -> 65px before the device safe area, with 56px touch targets. */
  .article-mobile-actions{padding-top:4px;padding-bottom:calc(4px + env(safe-area-inset-bottom,0px))}
  .article-mobile-action{min-height:56px;padding-top:5px;padding-bottom:5px;gap:2px}
- body[data-page="article"] .site{padding-bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+ /* The actions disappear at the footer, so no empty bar-sized tail is needed. */
+ body[data-page="article"] .site{padding-bottom:0}
+ body[data-page="article"] .site-footer{padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
  body[data-page="article"]{scroll-padding-bottom:calc(74px + env(safe-area-inset-bottom,0px))}
  body[data-page="article"] .header.menu-open .nav{max-height:calc(100dvh - var(--fixed-header-height,76px) - 66px - env(safe-area-inset-bottom,0px))}
  /* Reduce 15px body copy by 6.7%, retaining each existing line box in px. */

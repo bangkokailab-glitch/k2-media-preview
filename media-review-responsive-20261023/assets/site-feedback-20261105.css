@@ -1,5 +1,9 @@
 /* Client refinements, 2026-11-05. Keep the approved colors, layout and imagery. */
-body,body[data-page]{--fixed-header-height:74px}
+body,body[data-page]{--fixed-header-height:75px}
+/* Keep the requested 25% reduction relative to the original responsive masthead. */
+body[data-page="home"]{
+ --fixed-header-height:max(58.5px,calc(37.5vh - max(75vh,42.1875vw) * .3777777778));
+}
 .header,.header.inner-header,.header.menu-open{height:var(--fixed-header-height)}
 .header .header-inner{height:100%;min-height:0;padding-block:0}
 .header .nav .future-login{height:52px;padding-block:3px;margin-block:0}
