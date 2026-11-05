@@ -1,0 +1,58 @@
+/* Client refinements, 2026-11-05. Keep the approved colors, layout and imagery. */
+body,body[data-page]{--fixed-header-height:74px}
+.header,.header.inner-header,.header.menu-open{height:var(--fixed-header-height)}
+.header .header-inner{height:100%;min-height:0;padding-block:0}
+.header .nav .future-login{height:52px;padding-block:3px;margin-block:0}
+/* Use a real picture window instead of covering a full viewport then clipping bands. */
+body[data-page="home"] .hero{
+ --cinema-band:0px;--header-band:var(--fixed-header-height);
+ --hero-media-height:min(56.25vw,calc(100svh - var(--fixed-header-height) - 116px));
+ min-height:0;height:calc(var(--fixed-header-height) + var(--hero-media-height));
+}
+body[data-page="home"] .hero>.background,
+body[data-page="home"] .hero>.film{
+ inset:var(--fixed-header-height) 0 auto;
+ height:var(--hero-media-height);width:100%;clip-path:none;
+}
+body[data-page="home"] .hero>.background,
+body[data-page="home"] .hero>.hero-poster img{object-fit:cover;object-position:center}
+body[data-page="home"] .hero-copy{inset:var(--fixed-header-height) 0 0}
+@media(min-width:768px){
+ body[data-page="home"] .hero>.background,
+ body[data-page="home"] .hero>.hero-poster img{object-position:center top}
+}
+/* Preserve logo/menu/company-information placement, reduce only vertical spacing. */
+.site-footer{padding-block:36px 22px}
+.site-footer .footer-top{padding-bottom:22px}
+.site-footer .footer-bottom{padding-top:18px}
+@media(min-width:768px) and (max-width:1100px){
+ body,body[data-page]{--fixed-header-height:108px}
+ .header .header-inner{height:108px;grid-template-rows:60px 48px}
+ .header .nav,.header.menu-open .nav{height:48px}
+ .header .nav .future-login{top:4px;height:52px}
+ .site-footer .footer-top{gap:18px}
+}
+@media(max-width:900px){
+ .site-footer{padding-block:30px 22px}
+ .site-footer .footer-top{gap:20px;padding-bottom:22px}
+ .site-footer .footer-bottom{gap:18px;padding-top:18px}
+ .site-footer .footer-bottom nav{gap:12px 24px}
+}
+@media(max-width:767px){
+ body,body[data-page]{--fixed-header-height:76px}
+ .header .header-inner{height:76px}
+ .header .nav .future-login{height:auto;min-height:52px;padding:12px 14px}
+ body[data-page="home"] .hero{--hero-media-height:56.25vw}
+ body[data-page="home"] .newsroom-card .article-info h3,
+ body[data-page="home"] .newsroom-card.newsroom-card-large .article-info h3{font-size:20px}
+ .mobile-guide-break .mobile-guide-link{min-height:180px;padding:18px}
+ .mobile-guide-link .guide-eyebrow{margin-bottom:10px}
+ .mobile-guide-link .mobile-guide-action{margin-top:14px}
+ .site-footer .footer-major{gap:12px}
+ .site-footer .footer-major>.nav-item{min-height:44px}
+}
+@media(max-width:600px){
+ body[data-page="home"] .hero{--hero-media-height:100vw}
+ body[data-page="home"] .newsroom-card .article-info h3,
+ body[data-page="home"] .newsroom-card.newsroom-card-large .article-info h3{font-size:16.5px}
+}

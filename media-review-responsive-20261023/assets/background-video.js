@@ -50,13 +50,14 @@ export function initBackgroundVideo(siteAsset) {
   };
 
   const updatePoster = () => {
-    const still = siteAsset(mobile.matches ? 'poster-mobile.webp' : tablet.matches ? 'poster-tablet.webp' : 'poster-desktop.webp');
+    const still = siteAsset(mobile.matches ? 'poster-mobile.webp' : 'poster-tablet.webp');
     if (video.poster !== still) video.poster = still;
     if (poster && poster.src !== still) poster.src = still;
   };
 
+  // Use the approved wide rendition on tablets and desktop: no baked-in face crop.
   const ensureSource = () => {
-    const next = siteAsset(mobile.matches ? 'k2-hero-mobile-v2.mp4' : tablet.matches ? 'k2-hero-tablet-v1.mp4' : 'k2-hero-desktop-v2.mp4');
+    const next = siteAsset(mobile.matches ? 'k2-hero-mobile-v2.mp4' : 'k2-hero-tablet-v1.mp4');
     updatePoster();
     if (sourceURL === next) return;
     restoreTime = Number.isFinite(video.currentTime) ? video.currentTime : 0;

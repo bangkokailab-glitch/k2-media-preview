@@ -77,3 +77,74 @@ body[data-page="article"] .sidebar-guide-banner .article-guide-quiet{background-
  .article-mobile-action:focus-visible{outline:2px solid #cfb58d;outline-offset:-3px}
  body[data-page="article"] .header.menu-open .nav{max-height:calc(100dvh - var(--fixed-header-height,88px) - 80px - env(safe-area-inset-bottom,0px))}
 }
+
+/* 2026-11-05: keep the approved article, with a quieter reading rhythm. */
+.article-mobile-actions[hidden]{display:none!important}
+@media(min-width:768px){
+ body[data-page="article"] .article-prose,
+ body[data-page="article"] .editorial-prose{font-size:16px;line-height:2;color:#332b23;font-weight:500}
+ body[data-page="article"] .article-prose p,
+ body[data-page="article"] .article-prose .entry-intro,
+ body[data-page="article"] .article-prose section p,
+ body[data-page="article"] .article-prose li,
+ body[data-page="article"] .editorial-prose p,
+ body[data-page="article"] .editorial-prose li{font-size:16px;line-height:2;color:#332b23;font-weight:500}
+ body[data-page="article"] .editorial-prose .qa-question-bubble p{line-height:1.9}
+ body[data-page="article"] .editorial-prose .note-copy p,
+ body[data-page="article"] .editorial-prose .article-risk li{line-height:1.95}
+ body[data-page="article"] .editorial-prose .keypoints-list li{line-height:1.9}
+ /* Keep the small English component labels subordinate to the body. */
+ body[data-page="article"] .editorial-prose .note-label,
+ body[data-page="article"] .editorial-prose .keypoints-brand p{font-size:11px;line-height:1.5;font-weight:400;color:#745b37}
+ body[data-page="article"] .qa-answer-row{margin-left:0;grid-template-columns:minmax(0,1fr) 72px;gap:16px}
+ body[data-page="article"] .qa-brand img{width:72px}
+ body[data-page="article"] .related-articles .article-card-link{display:flex;flex-direction:column}
+ body[data-page="article"] .related-articles .article-info{display:flex;flex-direction:column;flex:1}
+ body[data-page="article"] .related-articles .article-info h3{
+  display:block;-webkit-line-clamp:unset;line-clamp:unset;overflow:visible;height:auto;min-height:0;flex:1;
+ }
+ body[data-page="article"] .related-articles .article-excerpt{
+  -webkit-line-clamp:3;line-clamp:3;min-height:5.55em;line-height:1.85;
+ }
+ body[data-page="article"] .related-articles .category-return{
+  display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;
+  padding:12px 24px;border:1px solid #a58c6d;background:#efe5d5;text-align:center;text-decoration:none;
+ }
+ body[data-page="article"] .related-articles .category-return:hover{background:#e5d7c2}
+ body[data-page="article"] .related-articles .category-return:focus-visible{outline:2px solid #6b5847;outline-offset:4px}
+ body[data-page="article"] .guide-banner{min-height:450px}
+ body[data-page="article"] .guide-content{padding-top:66px;padding-bottom:66px}
+}
+@media(max-width:767px){
+ /* 79px -> 65px before the device safe area, with 56px touch targets. */
+ .article-mobile-actions{padding-top:4px;padding-bottom:calc(4px + env(safe-area-inset-bottom,0px))}
+ .article-mobile-action{min-height:56px;padding-top:5px;padding-bottom:5px;gap:2px}
+ body[data-page="article"] .site{padding-bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+ body[data-page="article"]{scroll-padding-bottom:calc(74px + env(safe-area-inset-bottom,0px))}
+ body[data-page="article"] .header.menu-open .nav{max-height:calc(100dvh - var(--fixed-header-height,76px) - 66px - env(safe-area-inset-bottom,0px))}
+ /* Reduce 15px body copy by 6.7%, retaining each existing line box in px. */
+ body[data-page="article"] .article-prose{font-size:14px;line-height:31.5px}
+ body[data-page="article"] .article-prose p,
+ body[data-page="article"] .article-prose .entry-intro,
+ body[data-page="article"] .article-prose section p,
+ body[data-page="article"] .article-prose li{font-size:14px;line-height:31.5px}
+ body[data-page="article"] .editorial-prose,
+ body[data-page="article"] .editorial-prose p,
+ body[data-page="article"] .editorial-prose section p,
+ body[data-page="article"] .editorial-prose li{font-size:14px;line-height:30px}
+ body[data-page="article"] .editorial-prose .qa-question-bubble p{line-height:27px}
+ body[data-page="article"] .editorial-prose .note-copy p,
+ body[data-page="article"] .editorial-prose .article-risk li{line-height:28.5px}
+ body[data-page="article"] .editorial-prose .keypoints-list li{line-height:27.75px}
+ body[data-page="article"] .editorial-prose .editorial-toc li{line-height:27px}
+ body[data-page="article"] .editorial-prose .note-label,
+ body[data-page="article"] .editorial-prose .keypoints-brand p{font-size:11px;line-height:16.5px}
+ /* Separate discovery groups with space, rather than repeated rules. */
+ body[data-page="article"] .related-articles .article-info{border-bottom:0}
+ body[data-page="article"] .related-articles .category-return{min-height:44px;border-bottom:0;padding:8px 0;text-decoration:underline;text-underline-offset:5px}
+ body[data-page="article"] .discovery-sidebar{border-top:0;margin-top:44px;padding-top:0}
+ body[data-page="article"] .discovery-categories nav{border-top:0;row-gap:4px}
+ body[data-page="article"] .discovery-categories nav a{border-bottom:0}
+ body[data-page="article"] .discovery-keywords .tag-list a{border:0;background:#eee5d6;padding:8px 10px}
+ body[data-page="article"] .discovery-sticky>section+section{margin-top:32px}
+}

@@ -1,6 +1,6 @@
 # K2 Family Office メディア テストサイト
 
-公開する入口は次の3つです（確認用2ページは2026-10-31のご依頼で更新）。
+公開する入口は次の3つです（確認用2ページは2026-11-05のご依頼で更新）。
 
 - クライアント確認用: https://bangkokailab-glitch.github.io/k2-media-preview/media-review-responsive-20261023/
   - 最新の開発用トップを独立保存した確認用1ページ。初期HTMLから全リンク先を除去。
