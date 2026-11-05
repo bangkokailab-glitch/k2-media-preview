@@ -1,6 +1,7 @@
 // Let long discovery columns scroll naturally, then keep their end in view.
 export function initArticleDiscovery(){
  const stack=document.querySelector('.discovery-sticky');
+ const discoveryEnd=stack?.querySelector('.discovery-end');
  const header=document.querySelector('.header');
  const actions=document.querySelector('.article-mobile-actions');
  const footer=document.querySelector('.site-footer');
@@ -11,9 +12,15 @@ export function initArticleDiscovery(){
  function measure(){
   frame=0;
   if(stack){
-   if(!desktop.matches){stack.style.removeProperty('--discovery-sticky-top');}
+   if(!desktop.matches){
+    stack.style.removeProperty('--discovery-sticky-top');
+    stack.removeAttribute('data-sticky-disabled');
+   }
    else{
     const headerBottom=header?.getBoundingClientRect().bottom||0;
+    // When the banner and author cannot both fit, keep them reachable by scrolling.
+    const endHeight=discoveryEnd?.getBoundingClientRect().height||0;
+    stack.toggleAttribute('data-sticky-disabled',endHeight+headerBottom+48>window.innerHeight);
     const top=Math.min(headerBottom+24,window.innerHeight-stack.offsetHeight-24);
     stack.style.setProperty('--discovery-sticky-top',`${Math.round(top)}px`);
    }
@@ -28,6 +35,7 @@ export function initArticleDiscovery(){
  function schedule(){if(!frame)frame=requestAnimationFrame(measure);}
  const observer=new ResizeObserver(schedule);
  if(stack)observer.observe(stack);
+ if(discoveryEnd)observer.observe(discoveryEnd);
  if(header)observer.observe(header);
  if(footer)observer.observe(footer);
  if(actions&&footer){

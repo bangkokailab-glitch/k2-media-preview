@@ -1,4 +1,4 @@
-import {initArticleDiscovery} from './article-discovery.js?v=20261105-feedback';
+import {initArticleDiscovery} from './article-discovery.js?v=20261105-window';
 import {initBackgroundVideo} from './background-video.js?v=20261105-feedback';
 import {articles} from './articles.js?v=20261026-linked';
 import {renderEditorialContent,editorialSearchText} from './editorial-components.js?v=20261026-template3';

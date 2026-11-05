@@ -1,4 +1,4 @@
-import {initArticleDiscovery} from './article-discovery.js?v=20261105-feedback';
+import {initArticleDiscovery} from './article-discovery.js?v=20261105-window';
 import {initBackgroundVideo} from './background-video.js?v=20261105-feedback';
 // Client review is display-only. Keep markup/layout and text selection intact.
 export function initPreviewMode(root) {

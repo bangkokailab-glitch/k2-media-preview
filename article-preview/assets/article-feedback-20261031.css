@@ -51,6 +51,7 @@ body[data-page="article"] .sidebar-guide-banner .article-guide-quiet{background-
 @media(min-width:1051px){
  body[data-page="article"] .discovery-sidebar{align-self:stretch;position:relative;min-width:0}
  body[data-page="article"] .discovery-sticky{position:sticky;top:var(--discovery-sticky-top,124px)}
+ body[data-page="article"] .discovery-sticky[data-sticky-disabled]{position:static}
  body[data-page="article"] .article-after>.acp-after,
  body[data-page="article"] .article-after>.author-block,
  body[data-page="article"] .article-after>.article-guide-banner,

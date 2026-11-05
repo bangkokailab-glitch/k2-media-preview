@@ -10,7 +10,8 @@ body[data-page="home"]{
 /* Use a real picture window instead of covering a full viewport then clipping bands. */
 body[data-page="home"] .hero{
  --cinema-band:0px;--header-band:var(--fixed-header-height);
- --hero-media-height:min(56.25vw,calc(100svh - var(--fixed-header-height) - 116px));
+ /* In short windows, allow scrolling instead of cropping people's faces away. */
+ --hero-media-height:min(56.25vw,max(42vw,320px,calc(100svh - var(--fixed-header-height) - 116px)));
  min-height:0;height:calc(var(--fixed-header-height) + var(--hero-media-height));
 }
 body[data-page="home"] .hero>.background,
