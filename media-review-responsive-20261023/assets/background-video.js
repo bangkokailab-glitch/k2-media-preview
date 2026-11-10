@@ -5,6 +5,15 @@ export function initBackgroundVideo(siteAsset) {
   if (!video || !hero || video.dataset.backgroundInitialized) return;
   video.dataset.backgroundInitialized = 'true';
 
+  // In a short PC window, let the complete photo scroll into view.
+  // A fixed frame taller than the viewport would permanently hide its bottom.
+  const fitFrameToViewport = () => {
+    hero.classList.toggle('hero-scroll-frame', innerWidth > 600 && hero.offsetHeight > innerHeight);
+  };
+  fitFrameToViewport();
+  window.addEventListener('resize', fitFrameToViewport, { passive: true });
+  if ('ResizeObserver' in window) new ResizeObserver(fitFrameToViewport).observe(hero);
+
   const poster = hero.querySelector('picture.hero-poster img, img.hero-poster');
   const mobile = matchMedia('(max-width:600px)');
   const tablet = matchMedia('(min-width:601px) and (max-width:1100px), (min-width:601px) and (pointer:coarse)');
@@ -50,14 +59,14 @@ export function initBackgroundVideo(siteAsset) {
   };
 
   const updatePoster = () => {
-    const still = siteAsset(mobile.matches ? 'poster-mobile.webp?v=20261106-photos' : 'poster-tablet.webp?v=20261106-photos');
+    const still = siteAsset(mobile.matches ? 'poster-mobile.webp?v=20261106-photos' : 'poster-tablet.webp?v=20261111-framing');
     if (video.poster !== still) video.poster = still;
     if (poster && poster.src !== still) poster.src = still;
   };
 
   // Use the approved wide rendition on tablets and desktop: no baked-in face crop.
   const ensureSource = () => {
-    const next = siteAsset(mobile.matches ? 'k2-hero-mobile-v2.mp4?v=20261106-photos' : 'k2-hero-tablet-v1.mp4?v=20261106-photos');
+    const next = siteAsset(mobile.matches ? 'k2-hero-mobile-v2.mp4?v=20261106-photos' : 'k2-hero-tablet-v1.mp4?v=20261111-framing');
     updatePoster();
     if (sourceURL === next) return;
     restoreTime = Number.isFinite(video.currentTime) ? video.currentTime : 0;

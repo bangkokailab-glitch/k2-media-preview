@@ -6,20 +6,14 @@ export const staticPages = {
   company: {
     eyebrow: 'COMPANY',
     title: '会社概要・運営者情報',
-    lead: 'K2 Family Officeの運営者情報をご案内します。未掲載の項目は確認後に反映します。',
+    contentStatus: 'provided',
+    lead: 'K2 Family Officeの運営者情報をご案内します。',
     rows: [
       { label: '運営会社', value: 'K2 Holdings' },
-      { label: '代表者', value: '正式な代表者情報の確認後に掲載' },
-      { label: '所在地', value: '公開する所在地の確認後に掲載' },
-      { label: '事業内容', value: '正式な事業内容の確認後に掲載' },
-      { label: '連絡先', value: '指定の連絡先・窓口の確認後に掲載' },
+      { label: '事業内容', value: 'ファミリーオフィス設計、資産・事業・家族に関する総合的な設計支援' },
+      { label: 'お問い合わせ', value: '一般お問い合わせフォーム', href: 'contact/' },
     ],
-    sections: [
-      {
-        title: '会社・サイトに関するお問い合わせ',
-        paragraphs: ['一般お問い合わせページをご利用ください。現在のテストサイトでは、フォームの入力と画面表示のみをご確認いただけます。'],
-      },
-    ],
+    sections: [],
   },
   privacy: {
     "eyebrow": "PRIVACY POLICY",

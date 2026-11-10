@@ -10,8 +10,8 @@ body[data-page="home"]{
 /* Use a real picture window instead of covering a full viewport then clipping bands. */
 body[data-page="home"] .hero{
  --cinema-band:0px;--header-band:var(--fixed-header-height);
- /* In short windows, allow scrolling instead of cropping people's faces away. */
- --hero-media-height:min(56.25vw,max(42vw,320px,calc(100svh - var(--fixed-header-height) - 116px)));
+ /* Keep the whole 16:9 frame. Do not crop the bottom to fit a shorter viewport. */
+ --hero-media-height:56.25vw;
  min-height:0;height:calc(var(--fixed-header-height) + var(--hero-media-height));
 }
 body[data-page="home"] .hero>.background,
@@ -20,11 +20,11 @@ body[data-page="home"] .hero>.film{
  height:var(--hero-media-height);width:100%;clip-path:none;
 }
 body[data-page="home"] .hero>.background,
-body[data-page="home"] .hero>.hero-poster img{object-fit:cover;object-position:center}
+body[data-page="home"] .hero>.hero-poster img{object-fit:contain;object-position:center}
 body[data-page="home"] .hero-copy{inset:var(--fixed-header-height) 0 0}
 @media(min-width:768px){
  body[data-page="home"] .hero>.background,
- body[data-page="home"] .hero>.hero-poster img{object-position:center top}
+ body[data-page="home"] .hero>.hero-poster img{object-position:center}
 }
 /* Preserve logo/menu/company-information placement, reduce only vertical spacing. */
 .site-footer{padding-block:36px 22px}
@@ -60,4 +60,10 @@ body[data-page="home"] .hero-copy{inset:var(--fixed-header-height) 0 0}
  body[data-page="home"] .hero{--hero-media-height:100vw}
  body[data-page="home"] .newsroom-card .article-info h3,
  body[data-page="home"] .newsroom-card.newsroom-card-large .article-info h3{font-size:16.5px}
+}
+
+/* A short viewport must still allow the bottom of the complete frame to be seen. */
+@media(min-width:601px){
+ body[data-page="home"] .hero.hero-scroll-frame>.background,
+ body[data-page="home"] .hero.hero-scroll-frame>.film{position:absolute}
 }
