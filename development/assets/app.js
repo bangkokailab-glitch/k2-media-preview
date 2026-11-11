@@ -3,7 +3,7 @@ import {heroSlides,initHeroSlideshow} from './hero-originals.js?v=20261111-origi
 import {articles} from './articles.js?v=20261026-linked';
 import {renderEditorialContent,editorialSearchText} from './editorial-components.js?v=20261026-template3';
 import {renderAuthorCard} from './author-cards.js?v=20261026-template3';
-import {staticPages} from './content-static.js?v=20261111-company';
+import {staticPages} from './content-static.js?v=20261111-company-clean';
 const ROOT=new URL('../',import.meta.url), ASSETS=new URL('./media/',import.meta.url), PHOTOS=new URL('./photos/',import.meta.url);
 // Responsive derivatives preserve the approved photographs and framing.
 const siteAsset=name=>new URL(name,ASSETS).href;
