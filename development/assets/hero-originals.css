@@ -6,3 +6,17 @@
 .hero-slide-canvas img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;filter:none;transform:none;user-select:none}
 @media(max-width:600px){.hero-slide-canvas img{object-position:13.4286% 50%}}
 @media(prefers-reduced-motion:reduce){.hero-slideshow .hero-slide{transition:none}}
+
+/* Keep the copy horizontally centered and use the measured face-free space.
+   It shares the photograph's fixed/absolute positioning so scrolling cannot
+   move the text back across a face. The hero still clips both together. */
+body[data-page="home"] .hero .hero-copy{
+ inset:auto 0 auto;top:var(--hero-copy-top,var(--fixed-header-height));
+ height:auto;min-height:0;padding:0 20px;
+ opacity:0;transition:opacity .14s linear;
+}
+body[data-page="home"] .hero[data-copy-ready="true"] .hero-copy{opacity:1}
+body[data-page="home"] .hero .hero-copy[data-position="fixed"]{position:fixed}
+body[data-page="home"] .hero .hero-copy[data-position="absolute"]{position:absolute}
+body[data-page="home"] .hero .hero-copy.is-changing{opacity:0}
+@media(prefers-reduced-motion:reduce){body[data-page="home"] .hero .hero-copy{transition:none}}
