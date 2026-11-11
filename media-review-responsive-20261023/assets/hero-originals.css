@@ -7,16 +7,15 @@
 @media(max-width:600px){.hero-slide-canvas img{object-position:13.4286% 50%}}
 @media(prefers-reduced-motion:reduce){.hero-slideshow .hero-slide{transition:none}}
 
-/* Keep the copy horizontally centered and use the measured face-free space.
-   It shares the photograph's fixed/absolute positioning so scrolling cannot
-   move the text back across a face. The hero still clips both together. */
+/* The text has one fixed position: the exact center of the photo window.
+   Only the photographs crossfade. No scene-specific translation, tracking,
+   visibility change or animation is applied to the copy. */
 body[data-page="home"] .hero .hero-copy{
- inset:auto 0 auto;top:var(--hero-copy-top,var(--fixed-header-height));
- height:auto;min-height:0;padding:0 20px;
- opacity:0;transition:opacity .14s linear;
+ inset:auto 0 auto;top:var(--hero-copy-frame-top,var(--fixed-header-height));
+ height:var(--hero-copy-frame-height,var(--hero-media-height));
+ min-height:0;padding:0 20px;display:grid;place-items:center;
+ opacity:1;transition:none;animation:none;transform:none;
 }
-body[data-page="home"] .hero[data-copy-ready="true"] .hero-copy{opacity:1}
+body[data-page="home"] .hero .hero-copy h1{margin:0;transition:none;animation:none;transform:none}
 body[data-page="home"] .hero .hero-copy[data-position="fixed"]{position:fixed}
 body[data-page="home"] .hero .hero-copy[data-position="absolute"]{position:absolute}
-body[data-page="home"] .hero .hero-copy.is-changing{opacity:0}
-@media(prefers-reduced-motion:reduce){body[data-page="home"] .hero .hero-copy{transition:none}}
