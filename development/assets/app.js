@@ -37,7 +37,7 @@ const categories=[
 const cat=slug=>categories.find(c=>c.slug===slug)||categories[0];
 const articleUrl=()=>ARTICLE_PREVIEW_URL;
 const tagUrl=t=>path('tags/',{tag:t});
-const pending=(label,destination,cls='')=>`<a class="${cls}" href="#${destination}" data-pending="${destination}">${label}</a>`;
+const pending=(label,destination,cls='')=>`<a class="${cls}" data-pending="${destination}" role="link" aria-disabled="true" tabindex="-1" draggable="false">${label}</a>`;
 function searchForm(value='',place='header'){return `<form class="search-form search-${place}" action="${path('search/')}" role="search"><label class="sr-only" for="search-${place}">記事をキーワードで検索</label><input type="search" name="q" id="search-${place}" placeholder="キーワード検索" value="${esc(value)}" maxlength="100"><button type="submit" aria-label="記事を検索する">検索</button></form>`}
 function navLabel(en,ja){return `<span class="nav-en" lang="en">${en}</span><span class="nav-ja">${ja}</span>`}
 function editorialHeader(home=false){return `<header class="header${home?'':' inner-header'}"><div class="header-inner"><a class="brand" href="${path()}" aria-label="K2 Family Office メディアトップ"><img src="${siteAsset('k2-lp-logo.svg')}" alt="K2 Family Office" width="1330" height="235"></a><button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button><nav class="nav" id="main-nav" aria-label="メインナビゲーション"><p class="menu-brand-label" lang="en">K2 Family Office</p><div class="future-login" aria-label="MY FAMILY OFFICE LOGIN 準備中"><small>MY FAMILY OFFICE</small><strong>LOGIN</strong></div><span class="menu-divider" aria-hidden="true"></span><a class="nav-item" href="${path()}">${navLabel('Media','記事を読む')}</a>${pending(navLabel('Guide','ファミリーオフィスを知る'),'guide','nav-item')}${pending(navLabel('Family Office','ファミリーオフィス設計'),'service','nav-item service')}</nav></div></header>`}
@@ -66,7 +66,7 @@ function newsroomGroup({items,id,title,en,index=0,latest=false,url=''}){
  const reverse=index%2===1;
  return `<section class="newsroom-group${latest?' newsroom-latest':''}" aria-labelledby="${id}-title" data-category="${latest?'latest':id}"><div class="newsroom-heading"><div><p class="eyebrow">${String(index+1).padStart(2,'0')} / ${en}</p><h2 id="${id}-title">${title}</h2></div>${url?`<a class="newsroom-view-all" href="${url}">すべて見る</a>`:''}</div><div class="newsroom-trio${reverse?' newsroom-reverse':''}">${items.slice(0,4).map((a,i)=>newsroomCard(a,i,{latest,large:i===0})).join('')}</div></section>`;
 }
-function mobileGuideBreak(){return `<aside class="mobile-guide-break" aria-label="ファミリーオフィスガイド"><a class="mobile-guide-link" href="#guide" data-pending="guide"><span class="guide-eyebrow" lang="en">FAMILY OFFICE GUIDE</span><span class="mobile-guide-title">ファミリーオフィスを知る</span><span class="mobile-guide-action">ガイドを読む</span></a></aside>`;}
+function mobileGuideBreak(){return `<aside class="mobile-guide-break" aria-label="ファミリーオフィスガイド"><a class="mobile-guide-link" data-pending="guide" role="link" aria-disabled="true" tabindex="-1" draggable="false"><span class="guide-eyebrow" lang="en">FAMILY OFFICE GUIDE</span><span class="mobile-guide-title">ファミリーオフィスを知る</span><span class="mobile-guide-action">ガイドを読む</span></a></aside>`;}
 function homeFeed(){
  return `<div id="article-list" class="newsroom-feed">${newsroomGroup({items:articles,id:'latest',title:'新着記事',en:'LATEST STORIES',latest:true})}${mobileGuideBreak()}${categories.map((c,i)=>newsroomGroup({items:articles.filter(a=>a.category===c.slug),id:c.slug,title:c.name,en:c.en,index:i+1,url:path('category/'+c.slug+'/')})).join('')}<div class="newsroom-all"><a class="newsroom-view-all" href="${path('archive/')}">すべての記事を見る</a></div></div>`;
 }
@@ -80,7 +80,7 @@ function articleActions(){return `<nav class="article-mobile-actions" aria-label
 function author(){if(authorVariant)return authorProposal('after');return `<section class="author-block" aria-labelledby="author-title">${authorPortrait()}<div class="author-identity"><p class="eyebrow">AUTHOR</p><h2 class="author-name" id="author-title">河合 圭</h2><p class="author-role">K2 Family Office</p></div><p class="author-bio">事業・資産・家族をつなぎ、経営者のこれからを考える視点をお届けします。</p>${pending('プロフィールを見る','profile','author-profile-link')}<p class="portrait-preview-note">写真は仮配置です。</p></section>`}
 function articleGuideBanner(place='inline'){
  const sidebar=place==='sidebar';
- return `<aside class="article-guide-banner${sidebar?' sidebar-guide-banner':''}" aria-label="ファミリーオフィスガイド"><a class="article-guide-quiet" href="#guide" data-pending="guide" data-guide-page="01"><span class="guide-eyebrow" lang="en">FAMILY OFFICE GUIDE</span><span class="article-guide-title">${sidebar?'<span>ファミリーオフィスを</span><span>知る</span>':'ファミリーオフィスを知る'}</span><span class="article-guide-action">ガイドを読む</span></a></aside>`;
+ return `<aside class="article-guide-banner${sidebar?' sidebar-guide-banner':''}" aria-label="ファミリーオフィスガイド"><a class="article-guide-quiet" data-pending="guide" role="link" aria-disabled="true" tabindex="-1" draggable="false" data-guide-page="01"><span class="guide-eyebrow" lang="en">FAMILY OFFICE GUIDE</span><span class="article-guide-title">${sidebar?'<span>ファミリーオフィスを</span><span>知る</span>':'ファミリーオフィスを知る'}</span><span class="article-guide-action">ガイドを読む</span></a></aside>`;
 }
 function editorialArticle(a){
  const coverStem=a.image.replace(/\.(png|webp)$/,'');
@@ -119,6 +119,19 @@ document.querySelectorAll('[data-pending]').forEach(link=>{
  link.setAttribute('tabindex','-1');
  link.style.cursor='default';
 });
+// Unreleased Guide entries must not navigate, including modified or middle clicks.
+for(const eventName of ['click','auxclick']) document.addEventListener(eventName,event=>{
+ if(event.target.closest?.('[data-pending="guide"]')){
+  event.preventDefault();
+  event.stopImmediatePropagation();
+ }
+},true);
+document.addEventListener('keydown',event=>{
+ if((event.key==='Enter'||event.key===' ')&&event.target.closest?.('[data-pending="guide"]')){
+  event.preventDefault();
+  event.stopImmediatePropagation();
+ }
+},true);
 const menu=document.querySelector('.menu-toggle'), masthead=document.querySelector('.header');
 function closeMenu(){masthead?.classList.remove('menu-open');menu?.setAttribute('aria-expanded','false');menu?.setAttribute('aria-label','メニューを開く')}
 menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';masthead.classList.toggle('menu-open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く')});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});document.addEventListener('click',e=>{if(masthead&&!masthead.contains(e.target))closeMenu()});matchMedia('(max-width:767px)').addEventListener('change',closeMenu);
