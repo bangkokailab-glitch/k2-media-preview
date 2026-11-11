@@ -68,23 +68,19 @@ body[data-page="home"] .hero-copy{inset:var(--fixed-header-height) 0 0}
  body[data-page="home"] .hero.hero-scroll-frame>.film{position:absolute}
 }
 
-/* Keep desktop and resized mouse-driven windows within the editorial width. */
-@media(min-width:1101px), (min-width:601px) and (pointer:fine){
+/* PC: match Parcion's full-width, one-screen stage, without a lower black band. */
+@media(min-width:601px) and (pointer:fine){
  body[data-page="home"] .hero{
-  --hero-media-height:min(675px,45vw,max(240px,calc(100svh - var(--fixed-header-height) - 116px)));
-  --hero-media-width:calc(var(--hero-media-height) * 16 / 9);
+  --hero-media-height:calc(100svh - var(--fixed-header-height));
+  height:100svh;
  }
  body[data-page="home"] .hero>.background,
  body[data-page="home"] .hero>.film{
-  left:calc((100vw - var(--hero-media-width)) / 2);right:auto;
-  width:var(--hero-media-width);
+  left:0;right:0;width:100%;
  }
- body[data-page="home"] .hero-copy{
-  left:calc((100vw - var(--hero-media-width)) / 2);right:auto;
-  width:var(--hero-media-width);
+ body[data-page="home"] .hero>.background,
+ body[data-page="home"] .hero>.hero-poster img{
+  object-fit:cover;object-position:50% 40%;
  }
- body[data-page="home"] .hero-copy h1{
-  font-size:clamp(23px,calc(var(--hero-media-width) * .0291667),33.6px);
-  letter-spacing:clamp(3px,calc(var(--hero-media-width) * .0083333),9.6px);
- }
+ body[data-page="home"] .hero-copy{left:0;right:0;width:auto}
 }
