@@ -151,3 +151,8 @@ body[data-page="article"] .sidebar-guide-banner .article-guide-quiet{background-
  body[data-page="article"] .discovery-keywords .tag-list a{border:0;background:#eee5d6;padding:8px 10px}
  body[data-page="article"] .discovery-sticky>section+section{margin-top:32px}
 }
+
+/* Keep a clear break after the summary when the desktop author card is in the sidebar. */
+@media(min-width:1051px){
+ body[data-page="article"]:not([data-article-layout="editorial"]) .article-after{padding-top:40px}
+}
