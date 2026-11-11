@@ -17,3 +17,11 @@ body[data-page]{--fixed-header-height:88px}
  .header .nav .future-login{width:100%;height:auto;min-height:44px;padding:9px 12px;gap:5px}
  .header .nav .future-login small,.header .nav .future-login strong{font-size:14px!important;line-height:1.5}
 }
+
+/* 2026-11-12: match the approved Media home logo on every shared header.
+   The footer and existing header heights/navigation spacing remain unchanged. */
+body[data-page] .header .brand{width:clamp(250px,22vw,310px)!important;flex-basis:clamp(250px,22vw,310px)!important;flex-shrink:0!important;min-width:0}
+body[data-page] .header .brand img{display:block;width:100%!important;height:auto}
+@media(max-width:1100px){
+ body[data-page] .header .brand{width:260px!important;flex-basis:260px!important}
+}
