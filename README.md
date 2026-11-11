@@ -9,11 +9,12 @@
   - 最新の承認済み記事1ページのみ。バナー→著者の順。全リンク無効。
   - 右カラム追従・スマホ固定導線の見た目を保持。開発用とは独立したHTML・素材で保存。
 - 開発用: https://bangkokailab-glitch.github.io/k2-media-preview/development/
-  - 最新トップから記事、カテゴリー、全記事、タグ、検索、会社情報、規約、問い合わせ表示を接続。
+  - 最新トップからカテゴリー、全記事、タグ、検索、会社情報、規約、問い合わせ表示を接続。記事カードの表示は維持。
+  - 記事詳細へのリンクはすべて https://bangkokailab-glitch.github.io/k2-media-preview/article-preview/?rev=2a30d68 に統一。本文と画像は承認済みの1ページだけで確認。
+  - 以前の development/articles/ 配下20ページも同じ確認用URLに転送。
   - 開発用ページ一覧: development/review/
-  - 承認済み記事: development/articles/business-owner-own-shares/
 
-ガイド01〜03、FAQ、プロフィール、サービスLP、ログインは未実装・未接続です。準備中表示を使用し、未確定の外部URLへは接続しません。記事には配置確認用の仮原稿が含まれます。問い合わせは表示確認のみで送信しません。
+ガイド01〜03、FAQ、プロフィール、サービスLP、ログインは未実装・未接続です。準備中表示を使用し、未確定の外部URLへは接続しません。記事一覧には配置確認用の仮原稿が含まれます。記事詳細では個別の仮原稿を表示しません。問い合わせは表示確認のみで送信しません。
 
 旧確認版・旧デザイン比較版は公開から削除しました。復元用資料はGit履歴および作業フォルダーの output/media-build/20261026-site-consolidation/retired-tests.tar.gz に保存しています。
 
