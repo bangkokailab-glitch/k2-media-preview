@@ -1,5 +1,5 @@
 import {initArticleDiscovery} from './article-discovery.js?v=20261105-window';
-import {initBackgroundVideo} from './background-video.js?v=20261111-bbq';
+import {initHeroSlideshow} from './hero-originals.js?v=20261111-originals';
 // Client review is display-only. Keep markup/layout and text selection intact.
 export function initPreviewMode(root) {
   root.querySelectorAll('a').forEach(link => {
@@ -45,4 +45,4 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 document.addEventListener('click',e=>{if(masthead&&!masthead.contains(e.target))closeMenu()});
 matchMedia('(max-width:767px)').addEventListener('change',closeMenu);
 if(document.body.dataset.page==='article')initArticleDiscovery();
-initBackgroundVideo(name=>new URL('media/'+name,import.meta.url).href);
+initHeroSlideshow(name=>new URL('media/'+name,import.meta.url).href);

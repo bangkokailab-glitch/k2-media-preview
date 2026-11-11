@@ -1,0 +1,8 @@
+/* Original PNG slides preserve the supplied detail on desktop and mobile. */
+.hero>.hero-slideshow{overflow:hidden;z-index:-3}
+.hero-slideshow .hero-slide{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity .3s linear}
+.hero-slideshow .hero-slide.is-active{opacity:1}
+.hero-slide-canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-slide-canvas img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;filter:none;transform:none;user-select:none}
+@media(max-width:600px){.hero-slide-canvas img{object-position:13.4286% 50%}}
+@media(prefers-reduced-motion:reduce){.hero-slideshow .hero-slide{transition:none}}
