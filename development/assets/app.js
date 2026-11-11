@@ -1,5 +1,5 @@
 import {initArticleDiscovery} from './article-discovery.js?v=20261105-window';
-import {initBackgroundVideo} from './background-video.js?v=20261111-framing';
+import {initBackgroundVideo} from './background-video.js?v=20261111-bbq';
 import {articles} from './articles.js?v=20261026-linked';
 import {renderEditorialContent,editorialSearchText} from './editorial-components.js?v=20261026-template3';
 import {renderAuthorCard} from './author-cards.js?v=20261026-template3';

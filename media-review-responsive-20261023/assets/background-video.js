@@ -16,7 +16,7 @@ export function initBackgroundVideo(siteAsset) {
 
   const poster = hero.querySelector('picture.hero-poster img, img.hero-poster');
   const mobile = matchMedia('(max-width:600px)');
-  const tablet = matchMedia('(min-width:601px) and (max-width:1100px), (min-width:601px) and (pointer:coarse)');
+  const desktop = matchMedia('(min-width:601px) and (pointer:fine)');
   const reduce = matchMedia('(prefers-reduced-motion:reduce)');
   const bounds = hero.getBoundingClientRect();
   let inView = bounds.bottom > 0 && bounds.top < innerHeight;
@@ -64,9 +64,9 @@ export function initBackgroundVideo(siteAsset) {
     if (poster && poster.src !== still) poster.src = still;
   };
 
-  // Use the approved wide rendition on tablets and desktop: no baked-in face crop.
+  // Keep the touch renditions; desktop BBQ fills the frame without blurred side panels.
   const ensureSource = () => {
-    const next = siteAsset(mobile.matches ? 'k2-hero-mobile-v2.mp4?v=20261106-photos' : 'k2-hero-tablet-v1.mp4?v=20261111-framing');
+    const next = siteAsset(mobile.matches ? 'k2-hero-mobile-v2.mp4?v=20261106-photos' : desktop.matches ? 'k2-hero-desktop-v1.mp4?v=20261111-bbq' : 'k2-hero-tablet-v1.mp4?v=20261111-framing');
     updatePoster();
     if (sourceURL === next) return;
     restoreTime = Number.isFinite(video.currentTime) ? video.currentTime : 0;
@@ -181,7 +181,7 @@ export function initBackgroundVideo(siteAsset) {
     }, { threshold: 0 }).observe(hero);
   }
 
-  for (const mode of [mobile, tablet]) mode.addEventListener('change', () => {
+  for (const mode of [mobile, desktop]) mode.addEventListener('change', () => {
     updatePoster();
     if (eligible()) resume();
   });
