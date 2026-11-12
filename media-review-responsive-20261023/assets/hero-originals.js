@@ -51,10 +51,26 @@ export function initHeroSlideshow(siteAsset) {
   for(const layer of layers){
    const index=Number(layer.dataset.index),[,iw,ih,cx]=photos[index],canvas=layer.firstElementChild,img=canvas.firstElementChild;
    if(mobile.matches){
-    Object.assign(canvas.style,{width:'100%',height:'100%',left:'0px',top:'0px'});
-    const visible=ih*w/h,travel=iw-visible;
-    const x=travel>0?Math.max(0,Math.min(1,(iw*cx-visible/2)/travel)):0.5;
-    img.style.objectPosition=`${x*100}% 50%`;
+    const trialFrame={
+     0:{zoom:1.25,cx:.34,faceBottom:485},
+     1:{zoom:1.32,cx:.61,faceBottom:505},
+     2:{zoom:1.31,cx:.31,faceBottom:505},
+     5:{zoom:1.25,cx:.35,faceBottom:485}
+    }[index];
+    if(trialFrame){
+     const titleHeight=copy?.querySelector('h1')?.getBoundingClientRect().height||58;
+     const safeZoom=(h/2+titleHeight/2+8)/(h*(1-trialFrame.faceBottom/ih));
+     const scale=Math.max(w/iw,h/ih)*Math.max(trialFrame.zoom,safeZoom);
+     const cw=iw*scale,ch=ih*scale;
+     const left=Math.max(w-cw,Math.min(0,w/2-cw*trialFrame.cx));
+     Object.assign(canvas.style,{width:`${cw}px`,height:`${ch}px`,left:`${left}px`,top:`${h-ch}px`});
+     img.style.objectPosition='50% 50%';
+    }else{
+     Object.assign(canvas.style,{width:'100%',height:'100%',left:'0px',top:'0px'});
+     const visible=ih*w/h,travel=iw-visible;
+     const x=travel>0?Math.max(0,Math.min(1,(iw*cx-visible/2)/travel)):0.5;
+     img.style.objectPosition=`${x*100}% 50%`;
+    }
    }else{
     let cw=Math.max(w,h*16/9),ch=cw*9/16;
     let left=(w-cw)/2,top=(h-ch)*(desktop.matches?.4:.5);
