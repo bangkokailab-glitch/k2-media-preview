@@ -2,7 +2,7 @@
    Reserve its measured height; preserve the approved phone photo window. */
 @media (min-width:601px){
  body[data-page="home"] .hero{
-  --hero-media-height:min(56.25vw,max(120px,calc(100svh - var(--fixed-header-height) - var(--hero-category-height,95px) - 24px)));
+  --hero-media-height:min(56.25vw,max(120px,calc(100svh - var(--fixed-header-height) - var(--hero-category-height,95px) - 4px)));
   height:calc(var(--fixed-header-height) + var(--hero-media-height));
   min-height:0;
  }

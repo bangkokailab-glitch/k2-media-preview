@@ -55,7 +55,7 @@ function mobileGuideBreak(){return `<aside class="mobile-guide-break" aria-label
 function homeFeed(){
  return `<div id="article-list" class="newsroom-feed">${newsroomGroup({items:articles,id:'latest',title:'新着記事',en:'LATEST STORIES',latest:true})}${mobileGuideBreak()}${categories.map((c,i)=>newsroomGroup({items:articles.filter(a=>a.category===c.slug),id:c.slug,title:c.name,en:c.en,index:i+1,url:path('category/'+c.slug+'/')})).join('')}<div class="newsroom-all"><a class="newsroom-view-all" href="${path('archive/')}">すべての記事を見る</a></div></div>`;
 }
-function home(){return `${header(true)}${hero()}<main id="main-content"><section class="reading-region">${categoryNav()}<div class="wrap newsroom-wrap"><p class="layout-comparison-note">記事・写真・日付は確認用の仮配置です。</p>${homeFeed()}</div></section>${banner()}</main>`}
+function home(){return `${header(true)}${hero()}<main id="main-content"><section class="reading-region">${categoryNav()}<div class="wrap newsroom-wrap">${homeFeed()}</div></section>${banner()}</main>`}
 function archive(){return `${header()}<main id="main-content">${crumbs([['すべての記事']])}<section class="wrap listing-area">${intro('ALL ARTICLES','すべての記事')}${listing(articles)}</section>${banner()}</main>`}
 function category(){const c=cat(key),items=articles.filter(a=>a.category===c.slug);return `${header()}<main id="main-content">${crumbs([[c.name]])}<section class="category-hero wrap"><div>${intro(c.en,c.name,c.description)}</div><img ${photoAttrs(c.image,imageSizes.lead)} alt="" width="600" height="360"></section>${categoryNav(c.slug)}<section class="wrap listing-area" aria-label="${c.name}の記事">${listing(items)}</section>${banner()}</main>`}
 const allTags=[...new Set(articles.flatMap(a=>a.tags))];
