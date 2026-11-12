@@ -1,5 +1,5 @@
 import {initArticleDiscovery} from './article-discovery.js?v=20261105-window';
-import {initHeroSlideshow} from './hero-originals.js?v=20261111-center-fixed';
+import {initHeroSlideshow} from './hero-originals.js?v=20261113-latest-photos';
 // Client review is display-only. Keep markup/layout and text selection intact.
 export function initPreviewMode(root) {
   root.querySelectorAll('a').forEach(link => {

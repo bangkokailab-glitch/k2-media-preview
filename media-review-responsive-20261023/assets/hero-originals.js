@@ -1,14 +1,15 @@
-// Display the received original photographs directly: no video encode or image re-compression.
+// Latest supplied photographs, encoded at original dimensions as high-quality JPEG.
+// Keep the existing kitchen, scene order, timing and centered copy.
 const photos = [
- ['01-cafe.png',640,360,.34],['02-meeting.png',640,360,.54],
- ['03-pool.png',640,360,.31],['04-bbq.png',640,427,.44],
- ['05-kitchen.png',1672,941,.53],['06-campus.png',640,360,.34],
- ['07-la.png',640,360,.29],['08-airport.png',640,360,.68],
- ['09-paris.png',640,360,.52],['10-office.png',640,360,.61]
+ ['hero-photos-20261113/01-cafe.jpg',1672,941,.34],['hero-photos-20261113/02-meeting.jpg',1672,941,.54],
+ ['hero-photos-20261113/03-pool.jpg',1672,941,.31],['hero-photos-20261113/04-bbq.jpg',1535,1025,.44],
+ ['hero-originals/05-kitchen.png',1672,941,.53],['hero-photos-20261113/06-campus.jpg',1672,941,.34],
+ ['hero-photos-20261113/07-la.jpg',1672,941,.29],['hero-photos-20261113/08-airport.jpg',1672,941,.68],
+ ['hero-photos-20261113/09-paris.jpg',2560,1440,.52],['hero-photos-20261113/10-office.jpg',1672,941,.61]
 ];
 const stepMs=3000, fadeMs=300;
 export function heroSlides(siteAsset) {
- return `<div class="background hero-slideshow" aria-hidden="true" data-scene="1"><div class="hero-slide is-active"><div class="hero-slide-canvas"><img src="${siteAsset('hero-originals/01-cafe.png')}" width="640" height="360" alt="" fetchpriority="high" decoding="async" draggable="false"></div></div></div>`;
+ return `<div class="background hero-slideshow" aria-hidden="true" data-scene="1"><div class="hero-slide is-active"><div class="hero-slide-canvas"><img src="${siteAsset(photos[0][0])}" width="1672" height="941" alt="" fetchpriority="high" decoding="async" draggable="false"></div></div></div>`;
 }
 export function initHeroSlideshow(siteAsset) {
  const stage=document.querySelector('.hero-slideshow'),hero=stage?.closest('.hero');
@@ -16,6 +17,10 @@ export function initHeroSlideshow(siteAsset) {
  stage.dataset.initialized='true';
  const mobile=matchMedia('(max-width:600px)'),desktop=matchMedia('(min-width:601px) and (pointer:fine)'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
  const copy=hero.querySelector('.hero-copy');
+ const category=hero.parentElement.querySelector('.categories');
+ const syncCategoryHeight=()=>{
+  if(category)hero.style.setProperty('--hero-category-height',`${Math.ceil(category.getBoundingClientRect().height)}px`);
+ };
  const first=stage.querySelector('.hero-slide');
  const second=first.cloneNode(true);second.classList.remove('is-active');second.querySelector('img').removeAttribute('src');second.querySelector('img').removeAttribute('fetchpriority');stage.append(second);
  const layers=[first,second];layers.forEach((el,i)=>el.dataset.index=i?'1':'0');
@@ -33,7 +38,7 @@ export function initHeroSlideshow(siteAsset) {
  };
  const cache=new Map();
  const eligible=()=>ready&&inView&&!document.hidden&&!reduce.matches;
- const url=i=>siteAsset('hero-originals/'+photos[i][0]);
+ const url=i=>siteAsset(photos[i][0]);
  const prime=i=>{
   if(cache.has(i))return cache.get(i);
   const img=new Image();img.decoding='async';img.src=url(i);
@@ -101,12 +106,17 @@ export function initHeroSlideshow(siteAsset) {
   }catch(error){transitioning=false;stage.dataset.loadError='true';if(eligible())arm();}
  }
  const resume=()=>{stop();if(eligible())arm();};
+ syncCategoryHeight();
  layout();
  const firstImg=first.querySelector('img');
- firstImg.decode().then(()=>{ready=true;stage.dataset.sourceMode='original-png';resume();}).catch(()=>{stage.dataset.loadError='true';});
+ firstImg.decode().then(()=>{ready=true;stage.dataset.sourceMode='latest-original-dimensions';resume();}).catch(()=>{stage.dataset.loadError='true';});
  document.fonts?.ready.then(layout);
  window.addEventListener('resize',layout,{passive:true});
- if('ResizeObserver'in window)new ResizeObserver(layout).observe(stage);
+ if('ResizeObserver'in window){
+  new ResizeObserver(layout).observe(stage);
+  if(category)new ResizeObserver(syncCategoryHeight).observe(category);
+ }
+ window.addEventListener('resize',syncCategoryHeight,{passive:true});
  document.addEventListener('visibilitychange',resume);
  window.addEventListener('pageshow',resume);
  reduce.addEventListener('change',resume);
