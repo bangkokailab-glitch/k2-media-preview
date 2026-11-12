@@ -76,3 +76,4 @@ body[data-page="home"]{--fixed-header-height:max(78px,calc(50vh - max(100vh,56.2
 
 /* Lists and source metadata supplied for the legal pages. */
 .basic-section ul{padding-left:1.5em;margin:16px 0}.basic-section li{font-size:15px;line-height:2;color:#685744;margin:0 0 6px}.legal-meta{margin-top:32px}
+body[data-page="company"] .company-table>div:last-child{border-bottom:0}
