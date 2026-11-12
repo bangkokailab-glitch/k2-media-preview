@@ -56,8 +56,26 @@ export function initHeroSlideshow(siteAsset) {
     const x=travel>0?Math.max(0,Math.min(1,(iw*cx-visible/2)/travel)):0.5;
     img.style.objectPosition=`${x*100}% 50%`;
    }else{
-    const cw=Math.max(w,h*16/9),ch=cw*9/16;
-    Object.assign(canvas.style,{width:`${cw}px`,height:`${ch}px`,left:`${(w-cw)/2}px`,top:`${(h-ch)*(desktop.matches?.4:.5)}px`});
+    let cw=Math.max(w,h*16/9),ch=cw*9/16;
+    let left=(w-cw)/2,top=(h-ch)*(desktop.matches?.4:.5);
+    // Reframe only these PC photographs. Text, tablet and phone positions stay fixed.
+    if(desktop.matches&&index<3){
+     const title=copy?.querySelector('h1'),bounds=title?.getBoundingClientRect();
+     if(bounds){
+      const textLeft=(w-bounds.width)/2,textTop=(h-bounds.height)/2;
+      const faceRight=index===0?616:index===2?655:650;
+      const gap=index===1?8:18;
+      const meetingTextTop=textTop+6,meetingFaceBottom=495,meetingGap=2;
+      cw=Math.max(cw,(w-textLeft+gap)/(1-faceRight/iw));
+      if(index===1){
+       // Keep the three faces above or to the left of the central copy.
+       cw=Math.max(cw,(h-meetingTextTop+meetingGap)/(1-meetingFaceBottom/ih)*16/9);
+      }
+      ch=cw*9/16;left=w-cw;
+      top=index===1?Math.max(h-ch,Math.min(0,meetingTextTop-meetingGap-ch*meetingFaceBottom/ih)):(h-ch)*.4;
+     }
+    }
+    Object.assign(canvas.style,{width:`${cw}px`,height:`${ch}px`,left:`${left}px`,top:`${top}px`});
     img.style.objectPosition=index===3?'50% 0%':'50% 50%';
    }
   }

@@ -1,6 +1,6 @@
 import {ARTICLE_PREVIEW_URL} from './review-destination.js?v=20261111-unified-article';
 import {initArticleDiscovery} from './article-discovery.js?v=20261105-window';
-import {heroSlides,initHeroSlideshow} from './hero-originals.js?v=20261113-latest-photos';
+import {heroSlides,initHeroSlideshow} from './hero-originals.js?v=20261113-face-position';
 import {articles} from './articles.js?v=20261026-linked';
 import {renderEditorialContent,editorialSearchText} from './editorial-components.js?v=20261026-template3';
 import {renderAuthorCard} from './author-cards.js?v=20261026-template3';
